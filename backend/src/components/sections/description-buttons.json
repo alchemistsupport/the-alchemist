@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_description_buttons",
+  "info": {
+    "displayName": "Description Buttons",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "buttonName": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}

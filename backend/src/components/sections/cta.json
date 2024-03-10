@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_ctas",
+  "info": {
+    "displayName": "CTA",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "buttonTitle": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "showCTA": {
+      "type": "boolean",
+      "required": false
+    }
+  }
+}

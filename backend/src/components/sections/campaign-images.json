@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_sections_campaign_images",
+  "info": {
+    "displayName": "campaignImages"
+  },
+  "options": {},
+  "attributes": {
+    "addCampaignImages": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "first": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "second": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "third": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

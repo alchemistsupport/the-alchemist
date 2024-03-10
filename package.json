@@ -1,0 +1,25 @@
+{
+  "name": "alchemist-bar",
+  "version": "2.4.1",
+  "description": "Alchemist Bar Germany",
+  "scripts": {
+    "postinstall": "if [ $CLIENT_ENV ]; then npm run postinstall-client; elif [ $SERVER_ENV ]; then npm run postinstall-server; else echo no environment detected, please set CLIENT_ENV or SERVER_ENV; fi",
+    "postinstall-client": "cd frontend && npm install && npm run build",
+    "postinstall-server": "cd backend && npm install && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumitech-software/alchemist-bar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lumitech-software/alchemist-bar/issues"
+  },
+  "homepage": "https://github.com/lumitech-software/alchemist-bar#readme",
+  "engines": {
+    "node": "16.x",
+    "npm": "9.6.7"
+  }
+}

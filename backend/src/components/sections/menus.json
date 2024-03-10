@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_sections_menus",
+  "info": {
+    "displayName": "menus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "body_text": {
+      "type": "text",
+      "required": true
+    },
+    "gallery_mobile": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.menu-card",
+      "required": true,
+      "min": 3,
+      "max": 3
+    },
+    "gallery_pc": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.menu-card",
+      "required": true,
+      "max": 3,
+      "min": 3
+    }
+  }
+}

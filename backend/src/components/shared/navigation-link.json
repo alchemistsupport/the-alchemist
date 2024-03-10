@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_navigation_links",
+  "info": {
+    "displayName": "Navigation Link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

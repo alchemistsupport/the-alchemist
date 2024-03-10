@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_shared_forms",
+  "info": {
+    "displayName": "Form",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "secondName": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string"
+    },
+    "loading": {
+      "type": "string"
+    },
+    "submit": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "cv": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    }
+  }
+}

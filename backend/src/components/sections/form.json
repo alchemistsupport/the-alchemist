@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sections_forms",
+  "info": {
+    "displayName": "form",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "body_text": {
+      "type": "text",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string"
+    },
+    "loading": {
+      "type": "string"
+    },
+    "submit": {
+      "type": "string"
+    }
+  }
+}

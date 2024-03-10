@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_sections_sign_ups",
+  "info": {
+    "displayName": "sign up",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sign_up": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string"
+    },
+    "loading": {
+      "type": "string"
+    },
+    "submit": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

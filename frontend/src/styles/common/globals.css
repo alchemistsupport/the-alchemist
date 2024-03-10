@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'animate.css/animate.min.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+@layer components {
+  .section-dark {
+    @apply bg-black;
+  }
+
+  .section-beige {
+    @apply bg-beige;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.menus-slider-pc .slick-slide > div, 
+.menus-slider-mobile .slick-slide > div, 
+.fotter-slider-mobile .slick-slide > div {
+  margin: 0 8px;
+}
+
+.menus-slider-mobile .slick-track {
+  padding: 15px 0;
+}
+
+@media (min-width: 1280px) {
+  .menus-slider-pc .slick-track {
+    padding-top: 100px;
+  }
+
+  .menus-slider-pc .slick-slide .menus-slider-pc__title {
+    color: gray;
+  }
+
+  .menus-slider-pc .slick-slide.slick-center .menus-slider-pc__title {
+    color: #f7d2ae;
+  }
+
+  .menus-slider-pc .slick-slide {
+    min-width: 440px;
+    opacity: 30%;
+    transform: translateY(-10%);
+    transition: all 0.3s;
+  }
+
+  .menus-slider-pc .slick-slide.slick-center {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section {
+  padding: 0 20px;
+}
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .5s ease-in-out;
+}
+
+.link-underline-ice {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#f7d2ae, #f7d2ae)
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000)
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%
+}
+
+@media (min-width: 768px) {
+  .text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px;
+  }
+}
+
+.overlay {
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  top: 0;
+  overflow-x: hidden;
+  transition: 0.6s;
+}
+
+input[type=file]::file-selector-button {
+  padding: 8px 12px;
+  background-color: #f7d2ae;
+  border: 1px solid #f7d2ae;
+  color: black;
+  cursor: pointer;
+}
