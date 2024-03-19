@@ -7,13 +7,19 @@ import { Text } from '../text/Text';
 
 type Props = {
   data: ApiHomepageHomepage['attributes']['about_light'];
+  locale: string
 };
 
-export const AboutWhite = ({ data }: Props) => {
+export const AboutWhite = ({ data, locale }: Props) => {
   return (
     <section className="bg-about-light bg-no-repeat bg-cover bg-center relative z-10 py-24">
       <Slide triggerOnce direction="up">
-        <OpenTableWidget />
+        <OpenTableWidget className='mb-2 h-[200px]' />
+        <p
+          className="text-center w-1/2 mx-auto mb-20 box-border mt-40 text-lg font-semibold uppercase md:mt-0 md:text-xl"
+        >
+          {locale === 'en' ? 'Our bar and terrace are always open for walk ins, So head on down and we will seat you as soon as we can.' : 'Unsere Bar und Terrasse sind immer für Laufkundschaft geöffnet. Also kommen Sie vorbei und wir werden Ihnen so schnell wie möglich einen Platz anbieten.'}
+        </p>
       </Slide>
 
       <div className="section">
