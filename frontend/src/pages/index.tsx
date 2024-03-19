@@ -24,12 +24,13 @@ type Props = {
   footer: ApiFooterFooter;
   header: ApiHeaderHeader;
   screenmenu: ApiScreenmenuScreenmenu;
+  locale: string
 };
 
-const Home = ({ homepage, footer, header, screenmenu }: Props) => {
+const Home = ({ homepage, footer, header, screenmenu, locale }: Props) => {
   const { hero_banner, about_light, gallery, about_dark, menus, sign_up } =
     homepage.attributes;
-
+    
   return (
     <>
       <Seo seo={homepage.attributes.seo} />
@@ -41,7 +42,7 @@ const Home = ({ homepage, footer, header, screenmenu }: Props) => {
         screenmenu={screenmenu}
       >
         <HeroBanner data={hero_banner} />
-        <AboutWhite data={about_light} />
+        <AboutWhite data={about_light} locale={locale} />
         <GalleryDesktop data={gallery} />
         <AboutDark data={about_dark} images={gallery} />
         <Menus data={menus} />
@@ -100,6 +101,7 @@ export const getStaticProps: GetStaticProps = async context => {
       footer: footerRes.data,
       header: headerRes.data,
       screenmenu: screenmenuRes.data,
+      locale: context.locale
     },
     revalidate: 1,
   };
