@@ -1,9 +1,7 @@
 import { Modal } from '@ab/shared/ui';
 import App, { AppProps } from 'next/app';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { createContext } from 'react';
-import CookieConsent from 'react-cookie-consent';
 import { IntlProvider } from 'react-intl';
 
 import { fetchAPI } from '../../lib/api';
@@ -24,22 +22,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const { locale } = useRouter();
 
   // TO-DO: translate without intl context
-  const translations: {
-    [key: string]: { cookie: string; accept: string; decline: string };
-  } = {
-    de: {
-      cookie:
-        'Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern.',
-      accept: 'Akzeptieren',
-      decline: 'Ablehnen',
-    },
-    en: {
-      cookie: 'This website uses cookies to enhance the user experience.',
-      accept: 'Accept',
-      decline: 'Decline',
-    },
-  };
-
   return (
     <>
       <IntlProvider
@@ -49,30 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         messages={messages[(locale as keyof typeof messages) || 'en']}
       >
         <GlobalContext.Provider value={global.attributes}>
-          <CookieConsent
-            location="bottom"
-            buttonText={translations[locale as string].accept}
-            declineButtonText={translations[locale as string].decline}
-            enableDeclineButton
-            cookieName="alchemist-cookie"
-            style={{
-              background: '#0f0a09',
-              color: '#f7d2ae',
-              borderTopWidth: 1,
-              borderColor: '#f7d2ae',
-            }}
-            buttonStyle={{
-              background: '#f7d2ae',
-              color: '#4e503b',
-              fontSize: '14px',
-            }}
-            expires={150}
-          >
-            {translations[locale as string].cookie}{' '}
-            <Link href="/privacy-policy" target="_blank" className="underline">
-              View privacy policy.
-            </Link>
-          </CookieConsent>
+          
           <Modal data={modal} />
           <Component {...pageProps} />
         </GlobalContext.Provider>
