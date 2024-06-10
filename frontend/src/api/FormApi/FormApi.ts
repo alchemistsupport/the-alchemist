@@ -27,7 +27,7 @@ const contactUrl = '/api/customApi';
 const airshipUrl = '/v1/public/contact';
 
 const sendVacancy = async ({ vacancy, message, email }: FormParams) => {
-  await axios.post(`https://mybabymademedoit.com${emailUrl}`, {
+  await axios.post(`${process.env.NEXT_PUBLIC_API_URL}${emailUrl}`, {
     to: 'jobs@thealchemist.de',
     from: 'noreply@thealchemist.de',
     subject: 'subject',
@@ -47,7 +47,7 @@ const sendContacts = async ({
   contactEmail
 }: FormParams) => {
 
-  const res = await axios.post(`https://mybabymademedoit.com${contactUrl}`, {
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}${contactUrl}`, {
     to: contactEmail,
     from: 'noreply@thealchemist.de',
     subject: 'subject',
