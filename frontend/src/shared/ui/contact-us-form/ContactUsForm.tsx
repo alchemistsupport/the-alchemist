@@ -29,7 +29,7 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
 
   const title = campaign ? campaign.attributes.title : undefined;
 
-  const contactEmail = contact.attributes.contactEmail;
+  const contactEmail = campaign ? campaign.attributes.campaignEmail : contact.attributes.contactEmail;
 
   const { errors, touched, values, handleSubmit, handleChange } = useFormik({
     initialValues: {

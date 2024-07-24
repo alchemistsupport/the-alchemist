@@ -42,7 +42,8 @@ const Campaign = ({
   screenmenu,
 }: Props) => {
   const { hero_banner } = menu.attributes;
-  const { updateBanner, bannerImage } = campaign.attributes;
+  const { updateBanner, bannerImage, campaignEmail } = campaign.attributes;
+  console.log(campaignEmail)
   const { sectionsOrder } = campaign.attributes;
   const menuURL = campaign.attributes.menuFile?.data?.attributes?.url
   const heroImageSrc = updateBanner
@@ -248,7 +249,8 @@ export const getStaticPaths = async () => {
         showBookingButton: '*',
         bookingURL: '*',
         menuFile: '*',
-        descriptionButtons: '*'
+        descriptionButtons: '*',
+        campaignEmail: '*'
       },
     },
   );
@@ -304,7 +306,8 @@ export const getStaticProps: GetStaticProps = async context => {
         showBookingButton: '*',
         bookingURL: '*',
         menuFile: '*',
-        descriptionButtons: '*'
+        descriptionButtons: '*',
+        campaignEmail: '*'
       },
     }),
     fetchAPI('/contact', {
