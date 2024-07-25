@@ -34,7 +34,7 @@ module.exports = ({ env }) => ({
         },
       },
       actionOptions: {
-        upload: {},
+        upload: { maxSize: 100 * 1024 * 1024 },
         uploadStream: {},
         delete: {},
       },
