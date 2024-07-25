@@ -36,6 +36,9 @@ module.exports = [
       formLimit: '100mb', // Set form limit to 100MB
       jsonLimit: '100mb', // Set JSON limit to 100MB
       textLimit: '100mb', // Set text limit to 100MB
+      formidable: {
+        maxFileSize: 100 * 1024 * 1024, // multipart data, modify here limit of uploaded file size
+      },
     },
   },
   'strapi::session',
