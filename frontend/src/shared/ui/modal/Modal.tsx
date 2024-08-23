@@ -16,6 +16,10 @@ const Modal = ({ data }: Props) => {
     big_circle,
     text_image,
     image_in_the_middle,
+    open,
+    description,
+    delay,
+    book,
     button_image,
     small_circle,
   } = data.attributes;
@@ -29,7 +33,8 @@ const Modal = ({ data }: Props) => {
   useEffect(() => {
     const modalClosed = localStorage.getItem('modalClosed');
 
-    setIsOpen(modalClosed !== 'true');
+    setTimeout(() => {setIsOpen(modalClosed !== 'true')}, delay * 1000);
+    console.log(delay)
   }, []);
 
   return (
@@ -82,9 +87,9 @@ const Modal = ({ data }: Props) => {
           <div className='absolute rounded-full border-2 border-white w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] ' ></div>
           <div className='absolute rounded-full w-[400px] h-[400px] flex flex-col align-center justify-center text-center' >
             <Link href="/sign-up" onClick={handleClose}>
-              <h2 className='text-white text-4xl border-b-2 w-[140px] mx-auto mb-4 font-semibold'>SIGN UP</h2>
-            </Link>
-            <p className='text-white text-center text-2xl px-[120px]'>TO RECIEVE THE LATEST NEWS & HAPPENINGS</p>
+              <h2 className='text-white text-4xl border-b-2 w-[140px] mx-auto mb-4 font-semibold uppercase'>{open}</h2>
+            </Link>   
+            <p className='text-white text-center text-2xl px-[120px]'>{description}</p>
           </div>
 
           {/* <div className="absolute w-[80px] h-[80px] sm:w-[110px] sm:h-[110px] top-[145px] sm:top-[210px] cursor-pointer">

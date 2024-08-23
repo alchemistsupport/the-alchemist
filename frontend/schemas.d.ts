@@ -1831,6 +1831,18 @@ export type ApiModalModal = {
         localized: true;
       };
     }>;
+    description: StringAttribute &
+    SetPluginOptions<{
+      i18n: {
+        localized: true;
+      };
+    }>;
+    delay: NumberAttribute &
+    SetPluginOptions<{
+      i18n: {
+        localized: true;
+      };
+    }>;
     big_circle: MediaAttribute &
     RequiredAttribute &
     SetPluginOptions<{
