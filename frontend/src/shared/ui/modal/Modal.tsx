@@ -86,7 +86,7 @@ const Modal = ({ data }: Props) => {
           <div className='absolute rounded-full bg-[#00000080] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] ' ></div>
           <div className='absolute rounded-full border-2 border-white w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] ' ></div>
           <div className='absolute rounded-full w-[400px] h-[400px] flex flex-col align-center justify-center text-center' >
-            <Link href="/sign-up" onClick={handleClose}>
+            <Link href={book} onClick={handleClose}>
               <h2 className='text-white text-4xl border-b-2 w-[140px] mx-auto mb-4 font-semibold uppercase'>{open}</h2>
             </Link>   
             <p className='text-white text-center text-2xl px-[120px]'>{description}</p>
