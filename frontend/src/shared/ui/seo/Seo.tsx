@@ -6,7 +6,7 @@ import { GlobalContext } from '../../../pages/_app';
 
 export const Seo = ({ seo }: SharedSeo['attributes']) => {
   const { defaultSeo } =
-    useContext<ApiGlobalGlobal['attributes']>(GlobalContext);
+    useContext<ApiGlobalGlobal>(GlobalContext);
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,

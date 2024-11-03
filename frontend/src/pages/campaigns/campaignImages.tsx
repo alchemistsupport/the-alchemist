@@ -8,11 +8,11 @@ type Props = {
 };
 
 const AdditionalImages = ({ campaign }: Props) => {
-  const firstImageSrc = getStrapiMedia(campaign.attributes.campaignFirstImage);
+  const firstImageSrc = getStrapiMedia(campaign.campaignFirstImage);
   const secondImageSrc = getStrapiMedia(
-    campaign.attributes.campaignSecondImage,
+    campaign.campaignSecondImage,
   );
-  const thirdImageSrc = getStrapiMedia(campaign.attributes.campaignThirdImage);
+  const thirdImageSrc = getStrapiMedia(campaign.campaignThirdImage);
 
   return (
     <Slide triggerOnce direction="up">

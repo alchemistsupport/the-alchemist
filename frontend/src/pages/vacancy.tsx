@@ -67,9 +67,9 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
     }
   };
 
-  const firstImage = vacancy.attributes.first;
-  const secondImage = vacancy.attributes.second;
-  const thirdImage = vacancy.attributes.third;
+  const firstImage = vacancy.first;
+  const secondImage = vacancy.second;
+  const thirdImage = vacancy.third;
 
   const { setFieldValue, handleChange, handleSubmit, values, errors, touched } =
     useFormik<FormValues>({
@@ -133,7 +133,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
               textColor="beige"
               className="mt-14"
             >
-              {vacancy.attributes.title}
+              {vacancy.title}
             </Text>
           </Slide>
 
@@ -144,7 +144,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
               textColor="beige"
               className="w-full sm:w-96 m-auto text-center mt-4"
             >
-              {vacancy.attributes.body}
+              {vacancy.body}
             </Text>
           </Slide>
 
@@ -155,7 +155,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
               textColor="beige"
               className="mt-40"
             >
-              {vacancy.attributes.apply}
+              {vacancy.apply}
             </Text>
           </Slide>
 
@@ -166,7 +166,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
               textColor="beige"
               className="mt-5 text-center"
             >
-              {vacancy.attributes.cv}
+              {vacancy.cv}
             </Text>
           </Slide>
 
@@ -177,7 +177,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
                 onChange={handleChange}
                 value={values.name}
                 name="name"
-                placeholder={vacancy.attributes.name}
+                placeholder={vacancy.name}
                 variant="dark"
                 isError={!!errors.name && !!touched.name}
                 error={errors.name}
@@ -188,7 +188,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
                 onChange={handleChange}
                 value={values.email}
                 name="email"
-                placeholder={vacancy.attributes.email}
+                placeholder={vacancy.email}
                 variant="dark"
                 isError={!!errors.email && touched.email}
                 error={errors.email}
@@ -200,7 +200,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
                 value={values.phone}
                 name="phone"
                 type="text"
-                placeholder={vacancy.attributes.phone}
+                placeholder={vacancy.phone}
                 variant="dark"
                 isError={!!errors.phone && touched.phone}
                 error={errors.phone}
@@ -212,7 +212,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
                 value={values.subject}
                 name="subject"
                 type="text"
-                placeholder={vacancy.attributes.enquiry}
+                placeholder={vacancy.enquiry}
                 variant="dark"
                 isError={!!errors.subject && touched.subject}
                 error={errors.subject}
@@ -224,7 +224,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
                 value={values.vacancy}
                 name="vacancy"
                 type="text"
-                placeholder={vacancy.attributes.vacancy}
+                placeholder={vacancy.vacancy}
                 variant="dark"
                 isError={!!errors.vacancy && touched.vacancy}
                 error={errors.vacancy}
@@ -236,7 +236,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
                 name="cv"
                 type="file"
                 accept="application/pdf"
-                placeholder={vacancy.attributes.vacancy}
+                placeholder={vacancy.vacancy}
                 variant="dark"
                 isError={!!errors.cv && touched.cv}
                 error={errors.cv}
@@ -248,15 +248,15 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
                 onChange={handleChange}
                 value={values.message}
                 name="message"
-                placeholder={vacancy.attributes.message}
+                placeholder={vacancy.message}
               />
 
               <Button
                 type="submit"
                 name={
                   isLoading
-                    ? vacancy.attributes.loading
-                    : vacancy.attributes.submit
+                    ? vacancy.loading
+                    : vacancy.submit
                 }
                 variant="beige"
               />
@@ -271,21 +271,7 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
 export const getStaticProps: GetStaticProps = async context => {
   const [vacancyRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
     fetchAPI('/vacancy', {
-      populate: {
-        seo: '*',
-        title: '*',
-        body: '*',
-        name: '*',
-        email: '*',
-        phone: '*',
-        enquiry: '*',
-        message: '*',
-        submit: '*',
-        loading: '*',
-        first: '*',
-        second: '*',
-        third: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/footer', {

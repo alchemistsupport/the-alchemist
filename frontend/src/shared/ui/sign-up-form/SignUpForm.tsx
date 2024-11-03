@@ -31,7 +31,7 @@ const validationSchema = yup.object({
 
 export const SignUpForm: FC<SignUpFormProps> = ({ type = 'dark', data }) => {
   const [isLoading, setLoading] = useState(false);
-
+  
   const router = useRouter();
 
   const onSubmit = async (values: FormValues) => {

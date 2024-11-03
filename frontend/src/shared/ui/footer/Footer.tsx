@@ -18,8 +18,8 @@ export const Footer = ({ type, footer }: Props) => {
   const isDark = type === 'dark';
   const isLight = type === 'light';
 
-  const singleImage = footer.attributes.Logo_black;
-  const secondImage = footer.attributes.Logo_gold;
+  const singleImage = footer.Logo_black;
+  const secondImage = footer.Logo_gold;
 
   const intl = useIntl();
 
@@ -69,7 +69,7 @@ export const Footer = ({ type, footer }: Props) => {
               { 'text-ice-cream-parlour': isDark },
             )}
           >
-            {footer.attributes.Description}
+            {footer.Description}
           </p>
         </Slide>
 
@@ -81,7 +81,7 @@ export const Footer = ({ type, footer }: Props) => {
               { 'text-ice-cream-parlour': isDark },
             )}
           >
-            {footer.attributes.locate}
+            {footer.locate}
           </p>
         </Slide>
 

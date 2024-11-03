@@ -22,7 +22,7 @@ const Modal = ({ data }: Props) => {
     book,
     button_image,
     small_circle,
-  } = data.attributes;
+  } = data;
 
   const handleClose = () => {
     setIsOpen(false);
@@ -47,17 +47,17 @@ const Modal = ({ data }: Props) => {
         <div className="relative w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] flex justify-center items-center">
           <div className="relative w-[350px] h-[350px] sm:w-[500px] sm:h-[500px]">
             <Image
-              src={big_circle.data.attributes.url}
+              src={big_circle.url}
               fill
-              alt={big_circle.data.attributes.name}
+              alt={big_circle.name}
               className="object-contain"
             />
           </div>
 
           <div className="absolute w-[330px] h-[330px] sm:w-[460px] sm:h-[460px] animate-spin-slow">
             <Image
-              src={text_image.data.attributes.url}
-              alt={text_image.data.attributes.name}
+              src={text_image.url}
+              alt={text_image.name}
               fill
               className="object-contain"
             />
@@ -65,8 +65,8 @@ const Modal = ({ data }: Props) => {
 
           <div className="absolute w-[300px] h-[300px] sm:w-[300px] sm:h-[300px]">
             <Image
-              src={image_in_the_middle.data.attributes.url}
-              alt={image_in_the_middle.data.attributes.name}
+              src={image_in_the_middle.url}
+              alt={image_in_the_middle.name}
               fill
               className="object-contain"
             />
@@ -75,8 +75,8 @@ const Modal = ({ data }: Props) => {
 
           {/* <div className="absolute w-[90px] h-[90px] sm:w-[120px] sm:h-[120px] top-[141px] sm:top-[205px]">
             <Image
-              src={small_circle.data.attributes.url}
-              alt={small_circle.data.attributes.name}
+              src={small_circle.url}
+              alt={small_circle.name}
               fill
               className="object-contain"
             />
@@ -95,8 +95,8 @@ const Modal = ({ data }: Props) => {
             <Zoom triggerOnce>
               <Link href="/sign-up" onClick={handleClose}>
                 <Image
-                  src={button_image.data.attributes.url}
-                  alt={button_image.data.attributes.name}
+                  src={button_image.url}
+                  alt={button_image.name}
                   width={110}
                   height={110}
                 />

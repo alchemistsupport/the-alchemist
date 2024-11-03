@@ -26,8 +26,8 @@ export const AboutWhite = ({ data, locale }: Props) => {
         <div className="relative w-full flex flex-row justify-center items-center m-auto">
           <Zoom triggerOnce>
             <Image
-              alt={data.primary_image.data.attributes.name}
-              src={data.primary_image.data.attributes.url}
+              alt={data.primary_image.name}
+              src={data.primary_image.url}
               width={650}
               height={550}
               className="mx-auto z-50"

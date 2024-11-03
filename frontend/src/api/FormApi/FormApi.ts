@@ -54,7 +54,6 @@ const sendContacts = async ({
     text: title ? `Contacts: ${name}, email: ${email}, subject: ${subject}, message: ${message}, phone: ${phone}, campaign: ${title}`
       : `Contacts: ${name}, email: ${email}, subject: ${subject}, message: ${message}, phone: ${phone}`,
   });
-  console.log(res)
 
 };
 

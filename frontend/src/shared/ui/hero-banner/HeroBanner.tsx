@@ -15,8 +15,8 @@ export const HeroBanner = ({ data }: Props) => {
     <section className="flex flex-row items-center justify-center bg-ice-cream-parlour relative bg-gradient-to-b from-ice-cream-parlour to-allspice">
       <div className="relative w-full lg:w-[900px] h-screen flex flex-row items-center justify-center">
         <Image
-          alt={data.background_image.data.attributes.name}
-          src={data.background_image.data.attributes.url}
+          alt={data.background_image.name}
+          src={data.background_image.url}
           fill
           className="object-cover"
         />
@@ -27,8 +27,8 @@ export const HeroBanner = ({ data }: Props) => {
 
         <Zoom triggerOnce>
           <Image
-            alt={data.primary_image.data.attributes.name}
-            src={data.primary_image.data.attributes.url}
+            alt={data.primary_image.name}
+            src={data.primary_image.url}
             width={700}
             height={700}
             className="px-5 object-contain mx-auto z-20"

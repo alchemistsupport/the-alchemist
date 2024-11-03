@@ -21,7 +21,7 @@ type Props = {
 };
 
 const Book = ({ book, footer, header, screenmenu }: Props) => {
-  const singleImage = book.attributes.book;
+  const singleImage = book.book;
 
   return (
     <Layout
@@ -49,20 +49,20 @@ const Book = ({ book, footer, header, screenmenu }: Props) => {
                 textVariant="title"
                 className="-translate-y-6 sm:-translate-y-12"
               >
-                {book.attributes.title}
+                {book.title}
               </Text>
             </Slide>
 
             <div className="m-auto sm:w-96 sm:m-auto text-center">
               <Slide direction="up" triggerOnce>
                 <Text as="h2" textVariant="h2-xl">
-                  {book.attributes.body}
+                  {book.body}
                 </Text>
               </Slide>
 
               <Slide direction="up" triggerOnce>
                 <Text as="p" textVariant="base">
-                  {book.attributes.description}
+                  {book.description}
                 </Text>
               </Slide>
             </div>
@@ -80,13 +80,7 @@ const Book = ({ book, footer, header, screenmenu }: Props) => {
 export const getStaticProps: GetStaticProps = async context => {
   const [bookRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
     fetchAPI('/book', {
-      populate: {
-        seo: '*',
-        title: '*',
-        body: '*',
-        description: '*',
-        book: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/footer', {

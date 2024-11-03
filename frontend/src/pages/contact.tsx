@@ -21,8 +21,8 @@ type Props = {
   screenmenu: ApiScreenmenuScreenmenu;
 };
 const Contact = ({ footer, contact, header, screenmenu }: Props) => {
-  const firstImage = contact.attributes.first;
-  const secondImage = contact.attributes.second;
+  const firstImage = contact.first;
+  const secondImage = contact.second;
 
   return (
     <Layout type="dark" footer={footer} header={header} screenmenu={screenmenu}>
@@ -61,7 +61,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-10"
           >
-            {contact.attributes.locate}
+            {contact.locate}
           </Text>
 
           <Text
@@ -70,7 +70,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-4"
           >
-            {contact.attributes.contact}
+            {contact.contact}
           </Text>
 
           <Text
@@ -79,7 +79,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-16"
           >
-            {contact.attributes.times}
+            {contact.times}
           </Text>
 
           <Text
@@ -88,7 +88,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-2"
           >
-            {contact.attributes.monday}
+            {contact.monday}
           </Text>
 
           <Text
@@ -97,7 +97,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-2"
           >
-            {contact.attributes.tuesday}
+            {contact.tuesday}
           </Text>
 
           <Text
@@ -106,7 +106,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-2"
           >
-            {contact.attributes.wednesday}
+            {contact.wednesday}
           </Text>
 
           <Text
@@ -115,7 +115,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-2"
           >
-            {contact.attributes.thursday}
+            {contact.thursday}
           </Text>
 
           <Text
@@ -124,7 +124,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-2"
           >
-            {contact.attributes.friday}
+            {contact.friday}
           </Text>
 
           <Text
@@ -133,7 +133,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-2"
           >
-            {contact.attributes.saturday}
+            {contact.saturday}
           </Text>
 
           <Text
@@ -142,7 +142,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
             textColor="beige"
             className="text-center mt-2"
           >
-            {contact.attributes.sunday}
+            {contact.sunday}
           </Text>
         </div>
       </section>
@@ -153,28 +153,7 @@ const Contact = ({ footer, contact, header, screenmenu }: Props) => {
 export const getStaticProps: GetStaticProps = async context => {
   const [contactRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
     fetchAPI('/contact', {
-      populate: {
-        seo: '*',
-        title: '*',
-        body: '*',
-        name: '*',
-        email: '*',
-        phone: '*',
-        enquiry: '*',
-        message: '*',
-        submit: '*',
-        loading: '*',
-        times: '*',
-        monday: '*',
-        tuesday: '*',
-        wednesday: '*',
-        thursday: '*',
-        friday: '*',
-        saturday: '*',
-        sunday: '*',
-        first: '*',
-        second: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/footer', {

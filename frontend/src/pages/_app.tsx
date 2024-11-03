@@ -21,6 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const { global, modal } = pageProps;
   const { locale } = useRouter();
 
+    
   // TO-DO: translate without intl context
   return (
     <>
@@ -30,7 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         // @ts-ignore
         messages={messages[(locale as keyof typeof messages) || 'en']}
       >
-        <GlobalContext.Provider value={global.attributes}>
+        <GlobalContext.Provider value={global}>
           
           <Modal data={modal} />
           <Component {...pageProps} />

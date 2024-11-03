@@ -16,10 +16,9 @@ type Props = {
 }
 
 const Feedback = ({ feedback, header, footer, screenmenu }: Props) => {
-    console.log(feedback.attributes.background.data.attributes.url)
     const router = useRouter();
     const locale = router.locale === 'en' ? 'de' : 'en';
-    const backgroundImage = feedback.attributes.background.data.attributes.url
+    const backgroundImage = feedback.background.url
     return (
         <Layout
             header={header}
@@ -43,7 +42,7 @@ const Feedback = ({ feedback, header, footer, screenmenu }: Props) => {
                             textVariant='heading'
                             className='xs:text-2xl text-xl text-center'
                         >
-                            {feedback.attributes.title}
+                            {feedback.title}
                         </Text>
                     </Slide>
                     <Slide
@@ -54,11 +53,11 @@ const Feedback = ({ feedback, header, footer, screenmenu }: Props) => {
                     >
                         <Link
                             target='_blank'
-                            href={feedback.attributes.FIB}
+                            href={feedback.FIB}
                             locale={locale}
                             className='flex justify-center items-center text-base uppercase tracking-[2px] font-bold font-goodSans z-20 text-black px-9 py-3 bg-beige border-2 border-black hover:scale-105 duration-300'
                         >
-                            {feedback.attributes.buttonText}
+                            {feedback.buttonText}
                         </Link>
                     </Slide>
                 </div>
@@ -73,12 +72,7 @@ const Feedback = ({ feedback, header, footer, screenmenu }: Props) => {
 export const getStaticProps: GetStaticProps = async context => {
     const [feedbackRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
         fetchAPI('/feedback', {
-            populate: {
-                FIB: '*',
-                background: '*',
-                title: '*',
-                buttonText: '*'
-            },
+            populate: '*',
             locale: context.locale,
         }),
         fetchAPI('/footer', {

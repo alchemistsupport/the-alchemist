@@ -32,43 +32,43 @@ const Impressum = ({ footer, header, screenmenu, impressum }: Props) => {
       <div className="container">
         <div className="section mb-40 break-words">
           <h1 className="text-xl sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-64 font-bold text-black">
-            {impressum.attributes.notice}
+            {impressum.notice}
           </h1>
 
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-16 text-black">
-            {impressum.attributes.alchem}
+            {impressum.alchem}
           </p>
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-2 text-black">
-            {impressum.attributes.place}
+            {impressum.place}
           </p>
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-2 text-black">
-            {impressum.attributes.locate}
+            {impressum.locate}
           </p>
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-16 text-black">
-            {impressum.attributes.manage}
+            {impressum.manage}
           </p>
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-16 text-black">
-            {impressum.attributes.phone}
+            {impressum.phone}
           </p>
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-2 text-black">
-            {impressum.attributes.mail}
+            {impressum.mail}
           </p>
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-16 text-black">
-            {impressum.attributes.court}
+            {impressum.court}
           </p>
           <p className="sm:text-xl md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-2 text-black">
-            {impressum.attributes.vat}
+            {impressum.vat}
           </p>
           <p className="sm:text-xl break-words md:text-2xl text-center sm:text-center sm:m-auto origin-top tracking-widest uppercase pt-16 pb-16 text-black">
-            {impressum.attributes.europe}
+            {impressum.europe}
             <Link
               target="_blank"
               href="https://ec.europa.eu/consumers/odr/"
               className="px-2 text-beige break-words"
             >
-              {impressum.attributes.consumer}
+              {impressum.consumer}
             </Link>
-            {impressum.attributes.obligate}
+            {impressum.obligate}
           </p>
         </div>
       </div>
@@ -80,21 +80,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const [impressumRes, footerRes, headerRes, screenmenuRes] = await Promise.all(
     [
       fetchAPI('/impressum', {
-        populate: {
-          notice: '*',
-          alchem: '*',
-          name: '*',
-          place: '*',
-          locate: '*',
-          manage: '*',
-          phone: '*',
-          mail: '*',
-          court: '*',
-          vat: '*',
-          europe: '*',
-          consumer: '*',
-          obligate: '*',
-        },
+        populate: '*',
         locale: context.locale,
       }),
       fetchAPI('/footer', {

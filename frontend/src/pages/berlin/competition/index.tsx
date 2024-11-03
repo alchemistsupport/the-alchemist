@@ -28,7 +28,7 @@ const SignUp = ({ footer, header, screenmenu, homepage }: Props) => {
     >
       <NextSeo title="Sign Up" />
       <div className="container pt-24 md:pt-0">
-        <SignUpForm type="light" data={homepage.attributes.sign_up} />
+        <SignUpForm type="light" data={homepage.sign_up} />
       </div>
     </Layout>
   );

@@ -23,7 +23,7 @@ const PrivacyPolicy = ({ policy, footer, header, screenmenu }: Props) => (
     <section className="bg-bg-white bg-center relative">
       <div className="container pt-32">
         <div className="section break-words mb-16">
-          <Markdown>{policy.attributes.content}</Markdown>
+          <Markdown>{policy.content}</Markdown>
         </div>
       </div>
     </section>
@@ -33,9 +33,7 @@ const PrivacyPolicy = ({ policy, footer, header, screenmenu }: Props) => (
 export const getStaticProps: GetStaticProps = async context => {
   const [policyRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
     fetchAPI('/policy', {
-      populate: {
-        content: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/footer', {

@@ -15,7 +15,7 @@ const OpenTableCampaign = ({ className, campaign }: WidgetProps) => {
   };
 
   const widgetLocale = locales[locale as string];
-  const campaignWidget = campaign.attributes.openTableWidget;
+  const campaignWidget = campaign.openTableWidget;
 
   const src = `https${campaignWidget.split('https')[1]?.split('"')[0]}`;
 

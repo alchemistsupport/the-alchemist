@@ -29,11 +29,10 @@ type Props = {
 
 const Home = ({ homepage, footer, header, screenmenu, locale }: Props) => {
   const { hero_banner, about_light, gallery, about_dark, menus, sign_up } =
-    homepage.attributes;
-    
+    homepage;
   return (
     <>
-      <Seo seo={homepage.attributes.seo} />
+      <Seo seo={homepage.seo} />
 
       <Layout
         type="light"
@@ -58,7 +57,6 @@ export const getStaticProps: GetStaticProps = async context => {
       populate: {
         seo: '*',
         hero_banner: { populate: '*' },
-        hero: '*',
         about_light: { populate: '*' },
         gallery: { populate: '*' },
         about_dark: { populate: '*' },

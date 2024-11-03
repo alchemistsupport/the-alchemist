@@ -65,13 +65,11 @@ export const Header = ({ type, header, screenmenu, campaign }: HeaderProps) => {
     'text-ice-cream-parlour': open,
   };
 
-  const firstImage = header.attributes.first;
-  const secondImage = header.attributes.second;
-  const campaingImage = campaign?.attributes.headerImage;
-  const updateLogo = campaign?.attributes.updateHeaderImage;
+  const firstImage = header.first;
+  const secondImage = header.second;
+  const campaingImage = campaign?.headerImage;
+  const updateLogo = campaign?.updateHeaderImage;
 
-  console.log(updateLogo)
-  console.log(campaingImage)
   const getLogoSrc = () => {
     if(isCampaign && updateLogo) {
       return getStrapiMedia(campaingImage);
@@ -108,7 +106,7 @@ export const Header = ({ type, header, screenmenu, campaign }: HeaderProps) => {
           className="flex-1 flex justify-center items-center bg-black text-base uppercase tracking-[2px] text-ice-cream-parlour font-goodSans font-bold border-b-4 border-l-4 border-ice-cream-parlour"
           onClick={() => router.push('/book')}
         >
-          {header.attributes.book}
+          {header.book}
         </button>
       </div>
 
@@ -145,7 +143,7 @@ export const Header = ({ type, header, screenmenu, campaign }: HeaderProps) => {
                 )}
                 onClick={() => router.push('/book')}
               >
-                {header.attributes.book}
+                {header.book}
               </button>
 
               <button

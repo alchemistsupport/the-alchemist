@@ -7,6 +7,6 @@ export type ImageType = {
 
 export const mapImages = (array = []): ImageType[] =>
   array.map((item: ApiHomepageHomepage['attributes']['gallery']) => ({
-    src: item.attributes.url,
-    alt: item.attributes.name,
+    src: item.url,
+    alt: item.name,
   }));

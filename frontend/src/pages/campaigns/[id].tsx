@@ -41,22 +41,22 @@ const Campaign = ({
   header,
   screenmenu,
 }: Props) => {
-  const { hero_banner } = menu.attributes;
-  const { updateBanner, bannerImage, campaignEmail } = campaign.attributes;
-  console.log(campaignEmail)
-  const { sectionsOrder } = campaign.attributes;
-  const menuURL = campaign.attributes.menuFile?.data?.attributes?.url
+  const { hero_banner } = menu;
+  const { updateBanner, bannerImage, campaignEmail } = campaign;
+  const { sectionsOrder } = campaign;
+  const menuURL = campaign.menuFile?.data?.url
   const heroImageSrc = updateBanner
     ? getStrapiMedia(bannerImage)
-    : hero_banner.background_image.data.attributes.url;
+    : hero_banner.background_image.url;
   const heroImageAlt = updateBanner
-    ? bannerImage.data.attributes.name
-    : hero_banner.background_image.data.attributes.name;
+    ? bannerImage.name
+    : hero_banner.background_image.name;
   const router = useRouter();
-  const title = campaign.attributes.title.includes('#') ? campaign.attributes.title.split('#') : [campaign.attributes.title]
+  const title = campaign.title.includes('#') ? campaign.title.split('#') : [campaign.title]
   const locale = router.locale === 'en' ? 'de' : 'en';
 
-  const descriptionButtons = campaign.attributes.descriptionButtons.map((button: any) => {
+
+  const descriptionButtons = campaign.descriptionButtons.map((button: any) => {
     return (
       <Link
         target="_blank"
@@ -67,7 +67,6 @@ const Campaign = ({
       >{button.buttonName}</Link>
     )
   })
-
 
   return (
     <Layout
@@ -98,7 +97,7 @@ const Campaign = ({
               {title[0]}
             </Text>
           </Slide>
-          {campaign.attributes.CTA.showCTA && (
+          {campaign.CTA.showCTA && (
             <Slide
               triggerOnce
               duration={1500}
@@ -111,11 +110,11 @@ const Campaign = ({
                 locale={locale}
                 className="flex justify-center items-center text-base uppercase tracking-[2px] font-bold font-goodSans z-20 text-beige px-9 py-3 bg-black border-2 border-beige hover:scale-105 duration-300"
               >
-                {campaign.attributes.CTA.buttonTitle}
+                {campaign.CTA.buttonTitle}
               </Link>
             </Slide>
           )}
-          {campaign.attributes.showBookingButton && (
+          {campaign.showBookingButton && (
             <Slide
               triggerOnce
               duration={1500}
@@ -124,7 +123,7 @@ const Campaign = ({
             >
               <Link
                 target="_blank"
-                href={campaign.attributes.bookingURL}
+                href={campaign.bookingURL}
                 locale={locale}
                 className="flex justify-center items-center text-base uppercase tracking-[2px] font-bold font-goodSans z-20 text-black px-9 py-3 bg-beige border-2 border-black hover:scale-105 duration-300"
               >
@@ -134,7 +133,7 @@ const Campaign = ({
           )}
         </div>
         <div className="flex flex-col">
-          {campaign.attributes.showOpenTableWidget && (
+          {campaign.showOpenTableWidget && (
             <div className={`section-beige ${sectionsOrder?.openTableWidget}`}>
               <div className="pt-32">
                 <OpenTableCampaign campaign={campaign} />
@@ -145,17 +144,17 @@ const Campaign = ({
           <div
             className={`text-center flex flex-col items-center ${sectionsOrder?.formsSection}`}
           >
-            {campaign.attributes.showSignUpForm && (
+            {campaign.showSignUpForm && (
               <div className="my-[-100px]">
-                <SignUpForm data={menu.attributes.sign_up} />
+                <SignUpForm data={menu.sign_up} />
               </div>
             )}
 
-            {campaign.attributes.showContactForm && (
+            {campaign.showContactForm && (
               <ContactUsForm contact={contact} campaign={campaign} />
             )}
           </div>
-          {campaign.attributes.addCampaignImages && (
+          {campaign.addCampaignImages && (
             <div
               className={`py-10 bg-beige ${sectionsOrder?.campaignImagesSection}`}
             >
@@ -211,7 +210,7 @@ const Campaign = ({
                 }}
                 className="pt-8"
               >
-                {campaign.attributes.description}
+                {campaign.description}
               </Markdown>
               {descriptionButtons.length > 0 ? descriptionButtons : ''}
             </Slide>
@@ -226,39 +225,15 @@ export const getStaticPaths = async () => {
   const campaignsRes: { data: ApiCampaignCampaign[] } = await fetchAPI(
     '/campaigns',
     {
-      locale: 'all',
-      populate: {
-        title: '*',
-        description: '*',
-        showOpenTableWidget: '*',
-        showSignUpForm: '*',
-        showContactForm: '*',
-        openTableWidget: '*',
-        updateHeaderImage: '*',
-        headerImage: '*',
-        CTA: '*',
-        updateBanner: '*',
-        bannerImage: '*',
-        campaignURL: '*',
-        addCampaignImages: '*',
-        campaignFirstImage: '*',
-        campaignSecondImage: '*',
-        campaignThirdImage: '*',
-        sectionsOrder: '*',
-        contactFormHeader: '*',
-        showBookingButton: '*',
-        bookingURL: '*',
-        menuFile: '*',
-        descriptionButtons: '*',
-        campaignEmail: '*'
-      },
+      locale: '*',
+      populate: '*',
     },
   );
 
   const paths = campaignsRes.data.map(campaign => {
     return {
-      params: { id: campaign.attributes.campaignURL.toString() },
-      locale: campaign.attributes.locale,
+      params: { id: campaign.campaignURL.toString() },
+      locale: campaign.locale,
     };
   });
 
@@ -266,6 +241,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
+  console.log('locale: ', context.locale)
   if (!context.params?.id) {
     return {
       redirect: {
@@ -283,105 +259,46 @@ export const getStaticProps: GetStaticProps = async context => {
     headerRes,
     screenmenuRes,
   ] = await Promise.all([
-    await fetchAPI(`/campaigns/${context.params.id}`, {
-      locale: context.locale,
-      populate: {
-        title: '*',
-        description: '*',
-        showOpenTableWidget: '*',
-        showSignUpForm: '*',
-        showContactForm: '*',
-        openTableWidget: '*',
-        updateHeaderImage: '*',
-        headerImage: '*',
-        CTA: '*',
-        updateBanner: '*',
-        bannerImage: '*',
-        addCampaignImages: '*',
-        campaignFirstImage: '*',
-        campaignSecondImage: '*',
-        campaignThirdImage: '*',
-        sectionsOrder: '*',
-        contactFormHeader: '*',
-        showBookingButton: '*',
-        bookingURL: '*',
-        menuFile: '*',
-        descriptionButtons: '*',
-        campaignEmail: '*'
+    await fetchAPI(`/campaigns`, {
+      filters: {
+        campaignURL: {
+          $eq: context.params.id
+        },
+        locale: { $eq: context.locale },
       },
+      populate: '*',
     }),
     fetchAPI('/contact', {
-      populate: {
-        seo: '*',
-        title: '*',
-        body: '*',
-        name: '*',
-        email: '*',
-        phone: '*',
-        enquiry: '*',
-        message: '*',
-        submit: '*',
-        loading: '*',
-        times: '*',
-        monday: '*',
-        tuesday: '*',
-        wednesday: '*',
-        thursday: '*',
-        friday: '*',
-        saturday: '*',
-        sunday: '*',
-        first: '*',
-        second: '*',
-        contactEmail: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/menu', {
       populate: {
         seo: '*',
-        hero_banner: { populate: '*' },
+        hero_banner: { populate: {
+          background_image:'*',
+          primary_image:'*',
+          secondary_image:'*',
+        } },
         foodPrimaryImage: { populate: '*' },
         foodSecondaryImage: { populate: '*' },
         foodTextImage: { populate: '*' },
         drinksPrimaryImage: { populate: '*' },
         brunchPrimaryImage: { populate: '*' },
-        title: '*',
-        body: '*',
-        name: '*',
-        email: '*',
-        phone: '*',
-        enquiry: '*',
-        click: '*',
-        message: '*',
-        brunch: '*',
-        brunch_description: '*',
-        liquids_button: '*',
-        food_button: '*',
-        submit: '*',
-        loading: '*',
-        sign_up: '*',
+        sign_up: {populate:'*'}
       },
       locale: context.locale,
     }),
     fetchAPI('/footer', {
-      populate: {
-        Logo_black: '*',
-        Logo_gold: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/header', {
-      populate: {
-        first: '*',
-        second: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/screenmenu', {
-      populate: {
-        image: '*',
-        navigation: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
   ]);
@@ -389,7 +306,7 @@ export const getStaticProps: GetStaticProps = async context => {
   return {
     props: {
       footer: footerRes.data,
-      campaign: campaignRes.data,
+      campaign: campaignRes.data[0],
       contact: contactRes.data,
       menu: menuRes.data,
       header: headerRes.data,

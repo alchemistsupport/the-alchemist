@@ -30,7 +30,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
     foodPdfUrl,
     drinksPdfUrl,
     brunchPdfUrl,
-  } = menu.attributes;
+  } = menu;
 
   const foodClick = () => window.open(foodPdfUrl, '_blank');
 
@@ -45,16 +45,16 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
       <section className="section section-dark">
         <div className="w-full h-[80vh] relative flex justify-center items-center overflow-hidden">
           <Image
-            alt={hero_banner.background_image.data.attributes.name}
-            src={hero_banner.background_image.data.attributes.url}
+            alt={hero_banner.background_image.name}
+            src={hero_banner.background_image.url}
             fill
             className="object-cover"
           />
 
           <Bounce className="absolute w-[280px] h-[280px] sm:w-[360px] sm:h-[360px]">
             <Image
-              src={hero_banner.primary_image.data.attributes.url}
-              alt={hero_banner.primary_image.data.attributes.name}
+              src={hero_banner.primary_image.url}
+              alt={hero_banner.primary_image.name}
               fill
               className="object-contain"
             />
@@ -62,8 +62,8 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
 
           <div className="absolute w-[320px] h-[320px] sm:w-[500px] sm:h-[400px] animate-spin-slow">
             <Image
-              src={hero_banner.secondary_image.data.attributes.url}
-              alt={hero_banner.secondary_image.data.attributes.name}
+              src={hero_banner.secondary_image.url}
+              alt={hero_banner.secondary_image.name}
               fill
               className="object-contain"
             />
@@ -78,7 +78,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="heading"
               className="-translate-y-1/2"
             >
-              {menu.attributes.title}
+              {menu.title}
             </Text>
           </Slide>
 
@@ -89,7 +89,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="base"
               className="max-w-[400px] mt-14"
             >
-              {menu.attributes.body}
+              {menu.body}
             </Text>
           </Slide>
 
@@ -100,7 +100,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="h2-xl"
               className="mt-12"
             >
-              {menu.attributes.description}
+              {menu.description}
             </Text>
           </Slide>
 
@@ -111,7 +111,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="base"
               className="mt-12"
             >
-              {menu.attributes.click}
+              {menu.click}
             </Text>
           </Slide>
 
@@ -122,7 +122,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="h2-xl"
               className="mt-24"
             >
-              {menu.attributes.food}
+              {menu.food}
             </Text>
           </Slide>
 
@@ -132,24 +132,24 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
           >
             <div className="absolute w-full h-[250px] md:h-[370px]">
               <Image
-                alt={foodPrimaryImage.data.attributes.name}
-                src={foodPrimaryImage.data.attributes.url}
+                alt={foodPrimaryImage.name}
+                src={foodPrimaryImage.url}
                 fill
                 className="object-contain"
               />
             </div>
             <div className="absolute w-full h-72 md:h-[420px] -top-[17px]">
               <Image
-                alt={foodTextImage.data.attributes.name}
-                src={foodTextImage.data.attributes.url}
+                alt={foodTextImage.name}
+                src={foodTextImage.url}
                 fill
                 className="object-contain animate-spin-slow"
               />
             </div>
             <div className="absolute w-full h-72 md:h-96">
               <Image
-                alt={foodSecondaryImage.data.attributes.name}
-                src={foodSecondaryImage.data.attributes.url}
+                alt={foodSecondaryImage.name}
+                src={foodSecondaryImage.url}
                 fill
                 className="object-contain"
               />
@@ -163,14 +163,14 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="desc"
               className="my-10 max-w-[400px]"
             >
-              {menu.attributes.foodDescription}
+              {menu.foodDescription}
             </Text>
           </Slide>
 
           <Button
             type="submit"
             onClick={foodClick}
-            name={menu.attributes.food_button}
+            name={menu.food_button}
             variant="secondary"
           />
 
@@ -181,7 +181,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="h2-xl"
               className="mt-24"
             >
-              {menu.attributes.drinks}
+              {menu.drinks}
             </Text>
           </Slide>
 
@@ -191,24 +191,24 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
           >
             <div className="absolute w-full h-[250px] md:h-[370px]">
               <Image
-                alt={foodPrimaryImage.data.attributes.name}
-                src={foodPrimaryImage.data.attributes.url}
+                alt={foodPrimaryImage.name}
+                src={foodPrimaryImage.url}
                 fill
                 className="object-contain"
               />
             </div>
             <div className="absolute w-full h-72 md:h-[420px] -top-[17px]">
               <Image
-                alt={foodTextImage.data.attributes.name}
-                src={foodTextImage.data.attributes.url}
+                alt={foodTextImage.name}
+                src={foodTextImage.url}
                 fill
                 className="object-contain animate-spin-slow"
               />
             </div>
             <div className="absolute w-full h-72 md:h-96">
               <Image
-                alt={drinksPrimaryImage.data.attributes.name}
-                src={drinksPrimaryImage.data.attributes.url}
+                alt={drinksPrimaryImage.name}
+                src={drinksPrimaryImage.url}
                 fill
                 className="object-contain"
               />
@@ -222,19 +222,19 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="desc"
               className="my-10 max-w-[600px]"
             >
-              {menu.attributes.drinksDescription}
+              {menu.drinksDescription}
             </Text>
           </Slide>
 
           <Button
             type="submit"
             onClick={liquidsClick}
-            name={menu.attributes.liquids_button}
+            name={menu.liquids_button}
             variant="secondary"
           />
 
           <Text as="p" textColor="beige" textVariant="h2-xl" className="mt-24">
-            {menu.attributes.brunch}
+            {menu.brunch}
           </Text>
 
           <div
@@ -243,24 +243,24 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
           >
             <div className="absolute w-full h-[250px] md:h-[370px]">
               <Image
-                alt={foodPrimaryImage.data.attributes.name}
-                src={foodPrimaryImage.data.attributes.url}
+                alt={foodPrimaryImage.name}
+                src={foodPrimaryImage.url}
                 fill
                 className="object-contain"
               />
             </div>
             <div className="absolute w-full h-72 md:h-[420px] -top-[17px]">
               <Image
-                alt={foodTextImage.data.attributes.name}
-                src={foodTextImage.data.attributes.url}
+                alt={foodTextImage.name}
+                src={foodTextImage.url}
                 fill
                 className="object-contain animate-spin-slow"
               />
             </div>
             <div className="absolute w-full h-72 md:h-96">
               <Image
-                alt={brunchPrimaryImage.data.attributes.name}
-                src={brunchPrimaryImage.data.attributes.url}
+                alt={brunchPrimaryImage.name}
+                src={brunchPrimaryImage.url}
                 fill
                 className="object-contain"
               />
@@ -274,18 +274,18 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
               textVariant="desc"
               className="my-10 max-w-[600px]"
             >
-              {menu.attributes.brunch_description}
+              {menu.brunch_description}
             </Text>
           </Slide>
 
           <Button
             type="submit"
             onClick={brunchClick}
-            name={menu.attributes.brunch}
+            name={menu.brunch}
             variant="secondary"
           />
 
-          <SignUpForm data={menu.attributes.sign_up} />
+          <SignUpForm data={menu.sign_up} />
         </div>
       </section>
     </Layout>
@@ -297,27 +297,17 @@ export const getStaticProps: GetStaticProps = async context => {
     fetchAPI('/menu', {
       populate: {
         seo: '*',
-        hero_banner: { populate: '*' },
+        hero_banner: { populate: {
+          background_image:'*',
+          primary_image:'*',
+          secondary_image:'*',
+        } },
         foodPrimaryImage: { populate: '*' },
         foodSecondaryImage: { populate: '*' },
         foodTextImage: { populate: '*' },
         drinksPrimaryImage: { populate: '*' },
         brunchPrimaryImage: { populate: '*' },
-        title: '*',
-        body: '*',
-        name: '*',
-        email: '*',
-        phone: '*',
-        enquiry: '*',
-        click: '*',
-        message: '*',
-        brunch: '*',
-        brunch_description: '*',
-        liquids_button: '*',
-        food_button: '*',
-        submit: '*',
-        loading: '*',
-        sign_up: '*',
+        sign_up: {populate:'*'}
       },
       locale: context.locale,
     }),

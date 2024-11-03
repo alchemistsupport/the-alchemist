@@ -27,9 +27,9 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
 
-  const title = campaign ? campaign.attributes.title : undefined;
+  const title = campaign ? campaign.title : undefined;
 
-  const contactEmail = campaign ? campaign.attributes.campaignEmail : contact.attributes.contactEmail;
+  const contactEmail = campaign ? campaign.campaignEmail : contact.contactEmail;
 
   const { errors, touched, values, handleSubmit, handleChange } = useFormik({
     initialValues: {
@@ -71,15 +71,15 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
       <div className="text-center mt-6">
         <Slide triggerOnce direction="up">
           <Text as="h1" textVariant="heading" textColor="beige">
-            {contact.attributes.title}{' '}
+            {contact.title}{' '}
           </Text>
         </Slide>
 
         <Slide triggerOnce direction="up">
           <Text as="p" textVariant="base" textColor="beige" className="mt-4">
-            {campaign?.attributes.contactFormHeader
-              ? campaign.attributes.contactFormHeader
-              : contact.attributes.body}{' '}
+            {campaign?.contactFormHeader
+              ? campaign.contactFormHeader
+              : contact.body}{' '}
           </Text>
         </Slide>
       </div>
@@ -93,7 +93,7 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
               value={values.name}
               name="name"
               variant="dark"
-              placeholder={contact.attributes.name}
+              placeholder={contact.name}
               isError={!!errors.name && !!touched.name}
               error={errors.name}
             />
@@ -103,7 +103,7 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
               onChange={handleChange}
               value={values.email}
               name="email"
-              placeholder={contact.attributes.email}
+              placeholder={contact.email}
               variant="dark"
               isError={!!errors.email && !!touched.email}
               error={errors.email}
@@ -114,7 +114,7 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
               onChange={handleChange}
               value={values.phone}
               name="phone"
-              placeholder={contact.attributes.phone}
+              placeholder={contact.phone}
               variant="dark"
               isError={!!errors.phone && !!touched.phone}
               error={errors.phone}
@@ -125,7 +125,7 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
               onChange={handleChange}
               value={values.subject}
               name="subject"
-              placeholder={contact.attributes.enquiry}
+              placeholder={contact.enquiry}
               variant="dark"
               isError={!!errors.subject && !!touched.subject}
               error={errors.subject}
@@ -136,15 +136,15 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
               onChange={handleChange}
               value={values.message}
               name="message"
-              placeholder={contact.attributes.message}
+              placeholder={contact.message}
             />
 
             <Button
               type="submit"
               name={
                 isLoading
-                  ? contact.attributes.loading
-                  : contact.attributes.submit
+                  ? contact.loading
+                  : contact.submit
               }
               variant="beige"
             />

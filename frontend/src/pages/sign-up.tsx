@@ -36,12 +36,10 @@ const SignUp = ({ footer, header, screenmenu, homepage }: Props) => {
             <Bounce triggerOnce>
               <Image
                 alt={
-                  homepage.attributes.about_light.primary_image.data.attributes
-                    .name
+                  homepage.about_light.primary_image.name
                 }
                 src={
-                  homepage.attributes.about_light.primary_image.data.attributes
-                    .url
+                  homepage.about_light.primary_image.url
                 }
                 width={450}
                 height={550}
@@ -50,7 +48,7 @@ const SignUp = ({ footer, header, screenmenu, homepage }: Props) => {
             </Bounce>
           </div>
 
-          <SignUpForm type="light" data={homepage.attributes.sign_up} />
+          <SignUpForm type="light" data={homepage.sign_up} />
         </div>
       </div>
     </Layout>

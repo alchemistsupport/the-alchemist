@@ -21,12 +21,14 @@ export async function fetchAPI(
     `/api${path}${queryString ? `?${queryString}` : ''}`,
   )}`;
 
-  console.log(requestUrl)
 
   const response = await fetch(requestUrl, mergedOptions);
+  console.log(requestUrl)
+
 
   if (!response.ok) {
     console.error(response.statusText);
+    console.log(await response.json())
     throw new Error('An error occurred please try again');
   }
 

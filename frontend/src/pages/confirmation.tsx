@@ -27,16 +27,16 @@ const Confirmation = ({ footer, confirmation, header, screenmenu }: Props) => {
 
   const copies: { [key: string]: { title: string; description: string } } = {
     contact: {
-      title: confirmation.attributes.contact_title,
-      description: confirmation.attributes.contact_description,
+      title: confirmation.contact_title,
+      description: confirmation.contact_description,
     },
     vacancy: {
-      title: confirmation.attributes.vacancy_title,
-      description: confirmation.attributes.vacancy_description,
+      title: confirmation.vacancy_title,
+      description: confirmation.vacancy_description,
     },
     signup: {
-      title: confirmation.attributes.signup_title,
-      description: confirmation.attributes.signup_description,
+      title: confirmation.signup_title,
+      description: confirmation.signup_description,
     },
   };
 
@@ -76,15 +76,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const [confirmationRes, footerRes, headerRes, screenmenuRes] =
     await Promise.all([
       fetchAPI('/confirmation', {
-        populate: {
-          seo: '*',
-          contact_title: '*',
-          contact_description: '*',
-          vacancy_title: '*',
-          vacancy_description: '*',
-          signup_title: '*',
-          signup_description: '*',
-        },
+        populate: '*',
         locale: context.locale,
       }),
       fetchAPI('/footer', {
