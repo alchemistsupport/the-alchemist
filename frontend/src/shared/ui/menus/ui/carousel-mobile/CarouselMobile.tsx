@@ -34,7 +34,7 @@ export const CarouselMobile = ({ data }: Props) => {
       link: data[1].url,
       bgColor: 'bg-charon',
       textColor: 'text-hailstorm-grey',
-      text: intl.formatMessage({ id: 'carousel.brunch' }),
+      text: intl.formatMessage({ id: 'carousel.christmas' }),
       alt: data[1].image.name as string,
       src: data[1].image.url as string,
     },

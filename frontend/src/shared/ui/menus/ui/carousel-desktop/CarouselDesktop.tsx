@@ -83,7 +83,7 @@ export const CarouselDesktop = ({ data }: Props) => {
             className="relative cursor-pointer transition duration-300 ease-in-out hover:opacity-90"
           >
             <h3 className="text-4xl tracking-[5px] uppercase font-adieu text-ice-cream-parlour mb-4 text-center react-slick__header menus-slider-pc__title">
-              {intl.formatMessage({ id: 'carousel.brunch' })}
+              {intl.formatMessage({ id: 'carousel.christmas' })}
             </h3>
 
             <div className="text-ice-cream-parlour font-adieu text-center uppercase mb-6 duration-300 hover:opacity-20">
