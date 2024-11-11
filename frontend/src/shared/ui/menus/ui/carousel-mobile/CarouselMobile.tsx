@@ -26,7 +26,7 @@ export const CarouselMobile = ({ data }: Props) => {
       link: data[0].url,
       bgColor: 'bg-legendary',
       textColor: 'text-offbeat',
-      text: intl.formatMessage({ id: 'carousel.food' }),
+      text: data[0].title,
       alt: data[0].image.name as string,
       src: data[0].image.url as string,
     },
@@ -34,7 +34,7 @@ export const CarouselMobile = ({ data }: Props) => {
       link: data[1].url,
       bgColor: 'bg-charon',
       textColor: 'text-hailstorm-grey',
-      text: intl.formatMessage({ id: 'carousel.christmas' }),
+      text: data[1].title,
       alt: data[1].image.name as string,
       src: data[1].image.url as string,
     },
@@ -42,11 +42,12 @@ export const CarouselMobile = ({ data }: Props) => {
       link: data[2].url,
       bgColor: 'bg-ocean-drive',
       textColor: 'text-whales-mouth',
-      text: intl.formatMessage({ id: 'carousel.drinks' }),
+      text: data[2].title,
       alt: data[2].image.name as string,
       src: data[2].image.url as string,
     },
   ];
+  console.log(preparedData[0].text)
 
   return (
     <div className="md:hidden menus-slider-mobile">
@@ -60,7 +61,7 @@ export const CarouselMobile = ({ data }: Props) => {
             className={`rounded-[50px] ${item.bgColor} relative cursor-pointer transition duration-300 ease-in-out hover:scale-105`}
           >
             <h3
-              className={`text-3xl tracking-[12px] uppercase font-adieu ${item.textColor} mt-32 mb-80 ${item.bgColor} text-center`}
+              className={`text-2xl tracking-[4px] uppercase font-adieu ${item.textColor} mt-32 mb-80 ${item.bgColor} text-center`}
             >
               {item.text}
             </h3>
