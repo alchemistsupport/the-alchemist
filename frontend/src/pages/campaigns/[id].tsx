@@ -97,7 +97,7 @@ const Campaign = ({
               {title[0]}
             </Text>
           </Slide>
-          {campaign.CTA.showCTA && (
+          {campaign.CTA?.showCTA && (
             <Slide
               triggerOnce
               duration={1500}
