@@ -48,9 +48,6 @@ MyApp.getInitialProps = async (ctx: any) => {
   const globalRes = await fetchAPI('/global', {
     populate: {
       favicon: '*',
-      defaultSeo: {
-        populate: '*',
-      },
     },
   });
 
