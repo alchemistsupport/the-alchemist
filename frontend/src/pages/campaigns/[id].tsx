@@ -274,18 +274,20 @@ export const getStaticProps: GetStaticProps = async context => {
     }),
     fetchAPI('/menu', {
       populate: {
-        seo: '*',
-        hero_banner: { populate: {
-          background_image:'*',
-          primary_image:'*',
-          secondary_image:'*',
-        } },
+        seo: { populate: '*' },
+        hero_banner: {
+          populate: {
+            background_image: { populate: '*' },
+            primary_image: { populate: '*' },
+            secondary_image: { populate: '*' },
+          }
+        },
         foodPrimaryImage: { populate: '*' },
         foodSecondaryImage: { populate: '*' },
         foodTextImage: { populate: '*' },
         drinksPrimaryImage: { populate: '*' },
         brunchPrimaryImage: { populate: '*' },
-        sign_up: {populate:'*'}
+        sign_up: { populate: '*' }
       },
       locale: context.locale,
     }),

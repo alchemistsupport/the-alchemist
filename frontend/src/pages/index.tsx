@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const [homepageRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
     fetchAPI('/homepage', {
       populate: {
-        seo: '*',
+        seo: { populate: '*' },
         hero_banner: { populate: '*' },
         about_light: { populate: '*' },
         gallery: { populate: '*' },
@@ -66,29 +66,20 @@ export const getStaticProps: GetStaticProps = async context => {
             gallery_pc: { populate: '*' },
           },
         },
-        sign_up: '*',
+        sign_up: { populate: '*' },
       },
       locale: context.locale,
     }),
     fetchAPI('/footer', {
-      populate: {
-        Logo_black: '*',
-        Logo_gold: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/header', {
-      populate: {
-        first: '*',
-        second: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
     fetchAPI('/screenmenu', {
-      populate: {
-        image: '*',
-        navigation: '*',
-      },
+      populate: '*',
       locale: context.locale,
     }),
   ]);

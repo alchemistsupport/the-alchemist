@@ -46,9 +46,7 @@ MyApp.getInitialProps = async (ctx: any) => {
   const appProps = await App.getInitialProps(ctx);
 
   const globalRes = await fetchAPI('/global', {
-    populate: {
-      favicon: '*',
-    },
+    populate: '*',
   });
 
   const modalRes = await fetchAPI('/modal', {

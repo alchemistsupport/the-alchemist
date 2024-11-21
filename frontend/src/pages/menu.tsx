@@ -296,11 +296,11 @@ export const getStaticProps: GetStaticProps = async context => {
   const [menuRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
     fetchAPI('/menu', {
       populate: {
-        seo: '*',
+        seo: { populate: '*' },
         hero_banner: { populate: {
-          background_image:'*',
-          primary_image:'*',
-          secondary_image:'*',
+          background_image:{ populate: '*' },
+          primary_image:{ populate: '*' },
+          secondary_image:{ populate: '*' },
         } },
         foodPrimaryImage: { populate: '*' },
         foodSecondaryImage: { populate: '*' },
@@ -313,22 +313,22 @@ export const getStaticProps: GetStaticProps = async context => {
     }),
     fetchAPI('/footer', {
       populate: {
-        Logo_black: '*',
-        Logo_gold: '*',
+        Logo_black: { populate: '*' },
+        Logo_gold: { populate: '*' },
       },
       locale: context.locale,
     }),
     fetchAPI('/header', {
       populate: {
-        first: '*',
-        second: '*',
+        first: { populate: '*' },
+        second: { populate: '*' },
       },
       locale: context.locale,
     }),
     fetchAPI('/screenmenu', {
       populate: {
-        image: '*',
-        navigation: '*',
+        image: { populate: '*' },
+        navigation: { populate: '*' },
       },
       locale: context.locale,
     }),
