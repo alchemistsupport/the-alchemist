@@ -7,7 +7,7 @@ const nextConfig = {
   },
   images: {
     loader: 'default',
-    domains: ['localhost','thealchemist.s3.eu-west-2.amazonaws.com'],
+    domains: ['localhost','thealchemist.s3.eu-west-2.amazonaws.com','https://server.thealchemist.de'],
     remotePatterns: [
       {
         protocol: 'http',
@@ -30,6 +30,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'thealchemist.s3.eu-west-2.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'https://server.thealchemist.de',
         port: '',
         pathname: '/**',
       },
