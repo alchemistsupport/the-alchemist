@@ -40,6 +40,7 @@ export const Input: FC<InputProps> = ({
         'mb-4': isError,
       })}
     >
+      //@ts-ignore
       <InputMask
         mask={type === 'mask' ? '99-99-9999' : ''}
         className={inputClass}
