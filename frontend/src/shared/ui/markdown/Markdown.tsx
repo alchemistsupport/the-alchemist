@@ -11,6 +11,8 @@ type Props = {
   children: string;
 };
 
+const preprocessMarkdown = (markdown: string) => markdown.replace(/----/g, '\\-\\-\\-\\-');
+
 export const Markdown = ({ className, components, children }: Props) => (
   <ReactMarkdown
     className={className}
@@ -37,6 +39,6 @@ export const Markdown = ({ className, components, children }: Props) => (
       ...components,
     }}
   >
-    {children}
+    {preprocessMarkdown(children)}
   </ReactMarkdown>
 );

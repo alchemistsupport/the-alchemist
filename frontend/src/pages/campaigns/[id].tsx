@@ -55,6 +55,8 @@ const Campaign = ({
   const title = campaign.title.includes('#') ? campaign.title.split('#') : [campaign.title]
   const locale = router.locale === 'en' ? 'de' : 'en';
 
+  console.log(campaign.description)
+
 
   const descriptionButtons = campaign.descriptionButtons.map((button: any) => {
     return (
@@ -165,53 +167,57 @@ const Campaign = ({
             className={`text-center flex flex-col items-center pb-3 ${sectionsOrder?.descriptionSection}`}
           >
             <Slide triggerOnce direction="up">
-              <Markdown
-                components={{
-                  p: ({ children }) => (
-                    <Text
-                      as="p"
-                      textColor="beige"
-                      textVariant="desc"
-                      className="mt-2 lg:mr-40 lg:ml-40 leading-6"
-                    >
-                      {children}
-                    </Text>
-                  ),
-                  h1: ({ children }) => (
-                    <Text
-                      as="h1"
-                      textColor="beige"
-                      textVariant="h2-xl"
-                      className="mt-3 mb-3"
-                    >
-                      {children}
-                    </Text>
-                  ),
-                  h2: ({ children }) => (
-                    <Text
-                      as="h2"
-                      textColor="beige"
-                      textVariant="h2-no-underline"
-                      className="mt-3 mb-3"
-                    >
-                      {children}
-                    </Text>
-                  ),
-                  h3: ({ children }) => (
-                    <Text
-                      as="h3"
-                      textColor="beige"
-                      textVariant="h3"
-                      className="mt-3 mb-3"
-                    >
-                      {children}
-                    </Text>
-                  ),
-                }}
-                className="pt-8"
-              >
-                {campaign.description}
-              </Markdown>
+
+              <pre className='color-white'>
+                <Markdown
+                  components={{
+                    p: ({ children }) => (
+                      <Text
+                        as="pre"
+                        textColor="beige"
+                        textVariant="desc"
+                        className="mt-2 lg:mr-40 lg:ml-40 leading-6"
+                      >
+                        {children}
+                      </Text>
+                    ),
+                    h1: ({ children }) => (
+                      <Text
+                        as="pre"
+                        textColor="beige"
+                        textVariant="h2-xl"
+                        className="mt-3 mb-3"
+                      >
+                        {children}
+                      </Text>
+                    ),
+                    h2: ({ children }) => (
+                      <Text
+                        as="pre"
+                        textColor="beige"
+                        textVariant="h2-no-underline"
+                        className="mt-3 mb-3"
+                      >
+                        {children}
+                      </Text>
+                    ),
+                    h3: ({ children }) => (
+                      <Text
+                        as="pre"
+                        textColor="beige"
+                        textVariant="h3"
+                        className="mt-3 mb-3"
+                      >
+                        {children}
+                      </Text>
+                    ),
+                  }}
+                  className="pt-8"
+                >
+                  {campaign.description}
+                </Markdown>
+                ---------
+              </pre>
               {descriptionButtons.length > 0 ? descriptionButtons : ''}
             </Slide>
           </div>
