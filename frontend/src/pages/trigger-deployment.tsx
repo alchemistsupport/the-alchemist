@@ -10,7 +10,7 @@ function Deploy() {
     setLoading(true)
     setMessage(true)
     const res = await axios.post(
-      'https://api.vercel.com/v1/integrations/deploy/prj_XwnziZpVPY3ZKo9IUO0wRdWCg7pC/ynwFXYI818',
+      'https://api.vercel.com/v1/integrations/deploy/prj_pnwimvjALNTwz49jm9q9vqTf6J1p/GTMiPioZuW',
     );
     if(res.status === 201) {
       setLoading(false)

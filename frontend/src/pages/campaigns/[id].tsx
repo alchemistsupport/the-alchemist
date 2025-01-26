@@ -55,7 +55,6 @@ const Campaign = ({
   const title = campaign.title.includes('#') ? campaign.title.split('#') : [campaign.title]
   const locale = router.locale === 'en' ? 'de' : 'en';
 
-  console.log(campaign.description)
 
 
   const descriptionButtons = campaign.descriptionButtons.map((button: any) => {
@@ -176,7 +175,7 @@ const Campaign = ({
                         as="pre"
                         textColor="beige"
                         textVariant="desc"
-                        className="mt-2 lg:mr-40 lg:ml-40 leading-6"
+                        className="mt-2 lg:mr-40 lg:ml-40 leading-6 break-words whitespace-normal"
                       >
                         {children}
                       </Text>
@@ -186,7 +185,7 @@ const Campaign = ({
                         as="pre"
                         textColor="beige"
                         textVariant="h2-xl"
-                        className="mt-3 mb-3"
+                        className="mt-3 mb-3 break-words whitespace-normal"
                       >
                         {children}
                       </Text>
@@ -196,7 +195,7 @@ const Campaign = ({
                         as="pre"
                         textColor="beige"
                         textVariant="h2-no-underline"
-                        className="mt-3 mb-3"
+                        className="mt-3 mb-3 break-words whitespace-normal"
                       >
                         {children}
                       </Text>
@@ -206,7 +205,7 @@ const Campaign = ({
                         as="pre"
                         textColor="beige"
                         textVariant="h3"
-                        className="mt-3 mb-3"
+                        className="mt-3 mb-3 break-words whitespace-normal"
                       >
                         {children}
                       </Text>
