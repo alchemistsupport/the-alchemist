@@ -40,12 +40,14 @@ export const SignUpForm: FC<SignUpFormProps> = ({ type = 'dark', data }) => {
     const { email, first_name, last_name, dob, allow_opt_ins } = values;
 
     const yearOfBirth = dob.slice(-4);
-    const dateMonthOfBirth = dob.substring(0, dob.length - 5);
+    const monthOfBirth = dob.substring(3, dob.length - 5);
+    const dayOfBirth = dob.substring(0, 2)
 
-    const formattedDob = `${yearOfBirth}-${dateMonthOfBirth}`;
+    const formattedDob = `${yearOfBirth}-${monthOfBirth}-${dayOfBirth}`;
+    console.log(formattedDob)
 
     try {
-      await FormApi.sendUser({
+      const res = await FormApi.sendUser({
         email,
         first_name,
         last_name,
@@ -53,6 +55,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({ type = 'dark', data }) => {
         allow_opt_ins,
       });
 
+      
       router.push('/confirmation?type=signup');
 
       setLoading(false);
