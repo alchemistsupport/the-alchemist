@@ -91,7 +91,8 @@ const Vacancy = ({ footer, vacancy, header, screenmenu }: Props) => {
 
   return (
     <Layout footer={footer} type="dark" header={header} screenmenu={screenmenu}>
-      <NextSeo title="Vacancy" />
+      <NextSeo title={vacancy.seo.metaTitle} />
+      <NextSeo description={vacancy.seo.metaDescription} />
 
       <section className="section section-dark">
         <div className="container">

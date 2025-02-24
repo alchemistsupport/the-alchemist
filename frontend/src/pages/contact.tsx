@@ -23,10 +23,11 @@ type Props = {
 const Contact = ({ footer, contact, header, screenmenu }: Props) => {
   const firstImage = contact.first;
   const secondImage = contact.second;
-
+  console.log(contact.seo)
   return (
     <Layout type="dark" footer={footer} header={header} screenmenu={screenmenu}>
-      <NextSeo title="Contact" />
+      <NextSeo title={contact.seo?.metaTitle} />
+      <NextSeo description={contact.seo?.metaDescription} />
 
       <section className="section section-dark">
         <div className="flex flex-row justify-center items-center pt-40">

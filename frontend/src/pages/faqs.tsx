@@ -28,6 +28,7 @@ const Faqs = ({ footer, header, screenmenu }: Props) => {
       screenmenu={screenmenu}
     >
       <NextSeo title="Faq" />
+      <NextSeo description="Faq" />
 
       <section className="bg-bg-white bg-center relative">
         <div className="container">

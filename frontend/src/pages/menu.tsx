@@ -30,7 +30,10 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
     foodPdfUrl,
     drinksPdfUrl,
     brunchPdfUrl,
+    seo
   } = menu;
+
+  console.log(seo)
 
   const foodClick = () => window.open(foodPdfUrl, '_blank');
 
@@ -40,7 +43,8 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
 
   return (
     <Layout footer={footer} type="dark" screenmenu={screenmenu} header={header}>
-      <NextSeo title="Menu" />
+      <NextSeo title={seo?.metaTitle} />
+      <NextSeo description={seo?.metaDescription} />
 
       <section className="section section-dark">
         <div className="w-full h-[80vh] relative flex justify-center items-center overflow-hidden">
