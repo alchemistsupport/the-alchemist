@@ -22,7 +22,7 @@ type Props = {
 
 const Book = ({ book, footer, header, screenmenu }: Props) => {
   const singleImage = book.book;
-
+  
   return (
     <Layout
       footer={footer}
@@ -30,7 +30,8 @@ const Book = ({ book, footer, header, screenmenu }: Props) => {
       screenmenu={screenmenu}
       header={header}
     >
-      <NextSeo title="Book" />
+      <NextSeo title={book.seo?.metaTitle} />
+      <NextSeo description={book.seo?.metaDescription} />
 
       <section className="section section-beige mb-40">
         <div className="container">

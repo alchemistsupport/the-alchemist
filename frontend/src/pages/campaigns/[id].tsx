@@ -77,7 +77,8 @@ const Campaign = ({
       header={header}
       campaign={campaign}
     >
-      <NextSeo title={title[0]} />
+      <NextSeo title={campaign.metaTagsg?.metaTitle} />
+      <NextSeo description={campaign.metaTags?.metaDescription} />/
 
       <section className="section section-dark">
         <div className="w-full h-[80vh] relative flex justify-center items-center overflow-hidden flex-col">
