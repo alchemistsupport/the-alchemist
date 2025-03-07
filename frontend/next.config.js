@@ -7,7 +7,7 @@ const nextConfig = {
   },
   images: {
     loader: 'default',
-    domains: ['localhost','thealchemist.s3.eu-west-2.amazonaws.com','server.thealchemist.de'],
+    // domains: ['localhost','thealchemist.s3.eu-west-2.amazonaws.com','server.thealchemist.de'],
     remotePatterns: [
       {
         protocol: 'http',
