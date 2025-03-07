@@ -6,6 +6,7 @@ const nextConfig = {
     defaultLocale: 'de',
   },
   images: {
+    unoptimized: true,
     loader: 'default',
     // domains: ['localhost','thealchemist.s3.eu-west-2.amazonaws.com','server.thealchemist.de'],
     remotePatterns: [
