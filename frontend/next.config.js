@@ -35,7 +35,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'https://server.thealchemist.de',
+        hostname: 'server.thealchemist.de',
         port: '',
         pathname: '/**',
       },
