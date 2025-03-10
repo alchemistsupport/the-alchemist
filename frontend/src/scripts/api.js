@@ -1,10 +1,10 @@
 import qs from 'qs';
 
-export function getStrapiURL(path = '') {
+function getStrapiURL(path = '') {
   return `${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:1337'}${path}`;
 }
 
-export async function fetchAPI(
+async function fetchAPI(
   path,
   urlParamsObject = {},
   options = {},
@@ -35,3 +35,5 @@ export async function fetchAPI(
   const data = await response.json();
   return data;
 }
+
+module.exports = fetchAPI
