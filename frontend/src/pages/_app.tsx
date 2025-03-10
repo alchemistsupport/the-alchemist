@@ -41,6 +41,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 MyApp.getInitialProps = async (ctx: any) => {
   const appProps = await App.getInitialProps(ctx);
