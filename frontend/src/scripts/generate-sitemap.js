@@ -1,12 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { fetchAPI } from '../../lib/api'
+import { fetchAPI } from './api.js'
 
-type Campaign = {
-    campaignURL: string,
-    updatedAt: string,
-    locale: 'en' | 'de'
-}
 
 const generateSitemap = async () => {
     const baseURL = 'https://www.thealchemist.de'
@@ -95,14 +90,14 @@ const generateSitemap = async () => {
     ])
 
     const campaignsPages = [
-        ...campaigns.data.map((campaign: Campaign) => {
+        ...campaigns.data.map((campaign) => {
             return {
                 url: `/campaigns/${campaign.campaignURL}`,
                 locale: campaign.locale,
                 updatedAt: campaign.updatedAt
             }
         }),
-        ...campaignsDeutsch.data.map((campaign: Campaign) => {
+        ...campaignsDeutsch.data.map((campaign) => {
             return {
                 url: `/campaigns/${campaign.campaignURL}`,
                 locale: campaign.locale,
