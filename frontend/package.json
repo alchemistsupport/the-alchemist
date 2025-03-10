@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "if [ \"$VERCEL\" = \"1\" ]; then node dist/scripts/generate-sitemap.js; else node --loader ts-node/esm src/scripts/generate-sitemap.ts; fi",
+    "postbuild": "ts-node src/scripts/generate-sitemap.ts",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "typescript": "tsc --noEmit"
+    "typescript": "tsc --noEmit",
+    "vercel-build": "npm install --include=dev && npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
