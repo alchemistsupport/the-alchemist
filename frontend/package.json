@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild":"node --loader ts-node/esm src/scripts/generate-sitemap.ts",
+    "postbuild": "if [ \"$VERCEL\" = \"1\" ]; then node dist/scripts/generate-sitemap.js; else node --loader ts-node/esm src/scripts/generate-sitemap.ts; fi",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "typescript": "tsc --noEmit"
