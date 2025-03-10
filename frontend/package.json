@@ -45,6 +45,7 @@
     "react-toastify": "^9.1.2",
     "sharp": "^0.32.1",
     "strapi-plugin-populate-deep": "^3.0.1",
+    "ts-node": "^10.9.2",
     "typescript": "4.9.5",
     "yet-another-react-lightbox": "^2.6.1",
     "yup": "^1.0.2"
