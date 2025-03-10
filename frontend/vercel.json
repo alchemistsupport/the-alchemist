@@ -1,0 +1,12 @@
+{
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/next"
+      }
+    ],
+    "hooks": {
+      "build": "ts-node src/scripts/generate-sitemap.ts"
+    }
+  }
+  

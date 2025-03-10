@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "tsc-node src/scripts/generate-sitemap.ts",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "typescript": "tsc --noEmit"
