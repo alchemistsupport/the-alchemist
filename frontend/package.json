@@ -2,16 +2,14 @@
   "name": "alchemist-bar",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postbuild": "ts-node src/scripts/generate-sitemap.ts",
+    "postbuild": "tsc-node src/scripts/generate-sitemap.ts",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "typescript": "tsc --noEmit",
-    "vercel-build": "npm install --include=dev && npm run build"
+    "typescript": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
