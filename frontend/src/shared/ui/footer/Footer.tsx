@@ -21,6 +21,8 @@ export const Footer = ({ type, footer }: Props) => {
   const singleImage = footer.Logo_black;
   const secondImage = footer.Logo_gold;
 
+  const instagramLinks = footer.instagram_embed.map((el: any) => el.link)
+
   const intl = useIntl();
 
   const getLogoUrl = () => {
@@ -40,7 +42,7 @@ export const Footer = ({ type, footer }: Props) => {
       )}
     >
       <div className="pt-12">
-        <InstagramPosts />
+        <InstagramPosts links={instagramLinks} />
       </div>
 
       <Slide triggerOnce direction="up">

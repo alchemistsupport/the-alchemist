@@ -15,7 +15,7 @@ type Props = {
 export const GalleryDesktop = ({ data }: Props) => {
   const [open, setOpen] = useState(false);
 
-  const preparedData = mapImages(data.images.data);
+  const preparedData = mapImages(data.images);
   const partialImages = preparedData.length / 2;
   const leftColumnImages = preparedData.slice(0, partialImages);
   const rightColumnImages = preparedData.slice(

@@ -216,7 +216,6 @@ const generateSitemap = async () => {
             ${urlTags.join('')}
         </urlset>
     `.trim()
-    console.log(process.cwd(), "public", "sitemap.xml")
     const publicPath = path.join(process.cwd(), "public", "sitemap.xml")
     fs.writeFileSync(publicPath, sitemapContent);
 

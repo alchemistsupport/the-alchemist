@@ -16,10 +16,12 @@ type Props = {
   footer: ApiFooterFooter;
   header: ApiHeaderHeader;
   screenmenu: ApiScreenmenuScreenmenu;
+  faqs: any
 };
 
-const Faqs = ({ footer, header, screenmenu }: Props) => {
+const Faqs = ({ footer, header, screenmenu, faqs }: Props) => {
   const intl = useIntl();
+  console.log(faqs)
   return (
     <Layout
       type="light"
@@ -47,6 +49,19 @@ const Faqs = ({ footer, header, screenmenu }: Props) => {
             <h1 className="text-3xl text-center sm:text-center sm:m-auto origin-top  uppercase pt-12 font-adieu text-black">
               {intl.formatMessage({ id: 'faqs.general' })}
             </h1>
+            {faqs.QA.map((el: any, i: number) => {
+              return (
+                <div key={i}>
+                  <h1 className="text-3xl text-center sm:text-center sm:m-auto origin-top tracking-widest  uppercase pt-12 font-adieu text-black">
+                    {el.question}
+                  </h1>
+
+                  <p className="pt-12 px-8 italic text-base text-black font-times text-center uppercase">
+                    {el.answer}
+                  </p>
+                </div>
+              )
+            })}
             <h1 className="text-3xl text-center sm:text-center sm:m-auto origin-top tracking-widest  uppercase pt-12 font-adieu text-black">
               {intl.formatMessage({ id: 'faqs.book' })}
             </h1>
@@ -227,7 +242,11 @@ const Faqs = ({ footer, header, screenmenu }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-  const [footerRes, headerRes, screenmenuRes] = await Promise.all([
+  const [faqsRes, footerRes, headerRes, screenmenuRes] = await Promise.all([
+    fetchAPI('/faq', {
+      populate: '*',
+      locale: context.locale
+    }),
     fetchAPI('/footer', {
       populate: {
         Logo_black: { populate: '*' },
@@ -256,6 +275,7 @@ export const getStaticProps: GetStaticProps = async context => {
       footer: footerRes.data,
       header: headerRes.data,
       screenmenu: screenmenuRes.data,
+      faqs: faqsRes.data
     },
     revalidate: 1,
   };

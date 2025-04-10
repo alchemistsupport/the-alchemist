@@ -25,7 +25,8 @@ const settings = {
 
 export const AboutDark = ({ data, images }: Props) => {
   const [open, setOpen] = useState(false);
-  const preparedData = mapImages(images.images.data);
+  const preparedData = mapImages(images.images);
+  console.log(images)
 
   return (
     <>
