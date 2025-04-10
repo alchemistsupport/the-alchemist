@@ -7,8 +7,7 @@ type Props = {
 
 
 export const InstagramPosts: React.FC<Props> = ({ links = [] }) => {
-  console.log(links)
-
+    
   return (
     <Slide triggerOnce direction="up">
       <div className="section">
@@ -17,7 +16,7 @@ export const InstagramPosts: React.FC<Props> = ({ links = [] }) => {
 
           {links.map((link: string) => {
             return (
-              <div className="h-[324px] overflow-hidden">
+              <div className="h-[324px] overflow-hidden" key={link}>
                 <div className="-translate-x-[1px] -translate-y-[55px]">
                   <InstagramEmbed
                     url={link}
