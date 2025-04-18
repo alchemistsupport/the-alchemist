@@ -28,7 +28,6 @@ type Props = {
 
 export const CarouselDesktop = ({ data }: Props) => {
   const intl = useIntl();
-  console.log('carousel data: ', data[0].title)
 
   return (
     <div className="hidden md:block mb-8 menus-slider-pc">

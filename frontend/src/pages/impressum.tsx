@@ -27,7 +27,8 @@ const Impressum = ({ footer, header, screenmenu, impressum }: Props) => {
       header={header}
       screenmenu={screenmenu}
     >
-      <NextSeo title="Impressum" />
+      <NextSeo title={impressum.seo?.title? impressum.seo.title : 'Impressum'} />
+      <NextSeo description={impressum.seo?.description? impressum.seo.description : 'Impressum'} />
 
       <div className="container">
         <div className="section mb-40 break-words">

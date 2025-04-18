@@ -37,7 +37,7 @@ export const Footer = ({ type, footer }: Props) => {
   return (
     <footer
       className={cn(
-        'relative bg-no-repeat bg-cover bg-center pb-20 md:pb-28',
+        'relative bg-no-repeat bg-cover bg-center pb-6 md:pb-28',
         { 'bg-white': isLight },
         { 'bg-black': isDark },
       )}

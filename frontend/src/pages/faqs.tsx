@@ -21,7 +21,6 @@ type Props = {
 
 const Faqs = ({ footer, header, screenmenu, faqs }: Props) => {
   const intl = useIntl();
-  console.log(faqs)
   return (
     <Layout
       type="light"
@@ -29,8 +28,8 @@ const Faqs = ({ footer, header, screenmenu, faqs }: Props) => {
       header={header}
       screenmenu={screenmenu}
     >
-      <NextSeo title="Faq" />
-      <NextSeo description="Faq" />
+      <NextSeo title={faqs.seo?.title? faqs.seo.title : 'Faq'} />
+      <NextSeo description={faqs.seo?.description? faqs.seo.description : 'Faq'} />
 
       <section className="bg-bg-white bg-center relative">
         <div className="container">

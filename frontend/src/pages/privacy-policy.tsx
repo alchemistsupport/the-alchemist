@@ -19,7 +19,9 @@ type Props = {
 
 const PrivacyPolicy = ({ policy, footer, header, screenmenu }: Props) => (
   <Layout type="light" footer={footer} header={header} screenmenu={screenmenu}>
-    <NextSeo title="Privacy Policy" />
+    <NextSeo title={policy.seo?.title? policy.seo.title : 'Privacy Policy'} />
+    <NextSeo description={policy.seo?.description? policy.seo.description : 'Privacy Policy'} />
+
     <section className="bg-bg-white bg-center relative">
       <div className="container pt-32">
         <div className="section break-words mb-16">

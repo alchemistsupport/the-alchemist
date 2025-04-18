@@ -44,7 +44,6 @@ export const SignUpForm: FC<SignUpFormProps> = ({ type = 'dark', data }) => {
     const dayOfBirth = dob.substring(0, 2)
 
     const formattedDob = `${yearOfBirth}-${monthOfBirth}-${dayOfBirth}`;
-    console.log(formattedDob)
 
     try {
       const res = await FormApi.sendUser({

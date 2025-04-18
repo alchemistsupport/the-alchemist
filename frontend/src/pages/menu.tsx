@@ -33,7 +33,6 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
     seo
   } = menu;
 
-  console.log(seo)
 
   const foodClick = () => window.open(foodPdfUrl, '_blank');
 

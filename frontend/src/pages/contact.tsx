@@ -25,7 +25,6 @@ type Props = {
 const Contact = ({ footer, contact, header, screenmenu, locale }: Props) => {
   const firstImage = contact.first;
   const secondImage = contact.second;
-  console.log(contact.seo)
   return (
     <Layout type="dark" footer={footer} header={header} screenmenu={screenmenu}>
       <NextSeo title={contact.seo?.metaTitle} />

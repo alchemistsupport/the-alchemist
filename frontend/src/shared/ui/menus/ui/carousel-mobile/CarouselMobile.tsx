@@ -47,7 +47,6 @@ export const CarouselMobile = ({ data }: Props) => {
       src: data[2].image.url as string,
     },
   ];
-  console.log(preparedData[0].text)
 
   return (
     <div className="md:hidden menus-slider-mobile">

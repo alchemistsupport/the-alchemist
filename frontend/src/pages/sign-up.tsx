@@ -18,9 +18,10 @@ type Props = {
   header: ApiHeaderHeader;
   screenmenu: ApiScreenmenuScreenmenu;
   homepage: ApiHomepageHomepage;
+  signup: any
 };
 
-const SignUp = ({ footer, header, screenmenu, homepage }: Props) => {
+const SignUp = ({ footer, header, screenmenu, homepage, signup }: Props) => {
   return (
     <Layout
       type="light"
@@ -28,7 +29,8 @@ const SignUp = ({ footer, header, screenmenu, homepage }: Props) => {
       header={header}
       screenmenu={screenmenu}
     >
-      <NextSeo title="Sign Up" />
+      <NextSeo title={signup.seo?.title ? signup.seo.title : 'Sign Up'} />
+      <NextSeo description={signup.seo?.description ? signup.seo.description : 'Sign Up'} />
 
       <div className="bg-about-light bg-no-repeat bg-cover bg-center">
         <div className="container pt-24 md:pt-0">
@@ -56,7 +58,7 @@ const SignUp = ({ footer, header, screenmenu, homepage }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-  const [footerRes, headerRes, screenmenuRes, homepageRes] = await Promise.all([
+  const [footerRes, headerRes, screenmenuRes, homepageRes, signupRes] = await Promise.all([
     fetchAPI('/footer', {
       populate: {
         Logo_black: { populate: '*' },
@@ -84,6 +86,10 @@ export const getStaticProps: GetStaticProps = async context => {
         about_light: { populate: '*' },
       },
       locale: context.locale,
+    }), 
+    fetchAPI('/signup', {
+      populate: "*",
+      locale: context.locale,
     }),
   ]);
 
@@ -93,6 +99,7 @@ export const getStaticProps: GetStaticProps = async context => {
       header: headerRes.data,
       screenmenu: screenmenuRes.data,
       homepage: homepageRes.data,
+      signup: signupRes.data
     },
     revalidate: 1,
   };
