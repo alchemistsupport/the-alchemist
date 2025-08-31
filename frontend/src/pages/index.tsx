@@ -30,6 +30,7 @@ type Props = {
 const Home = ({ homepage, footer, header, screenmenu, locale }: Props) => {
   const { hero_banner, about_light, gallery, about_dark, menus, sign_up } =
     homepage;
+    console.log('Node version:', process.version)
   return (
     <>
       <Seo seo={homepage.seo} />
