@@ -30,7 +30,7 @@ const Feedback = ({ feedback, header, footer, screenmenu }: Props) => {
                 <div className='w-full h-[80vh] relative flex justify-center items-center overflow-hidden flex-col'>
                     <Image
                         alt='feedback'
-                        src={backgroundImage}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${backgroundImage}`}
                         fill
                         className='object-cover'
                     />

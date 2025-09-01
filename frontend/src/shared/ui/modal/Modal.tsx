@@ -47,7 +47,7 @@ const Modal = ({ data }: Props) => {
         <div className="relative w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] flex justify-center items-center">
           <div className="relative w-[350px] h-[350px] sm:w-[500px] sm:h-[500px]">
             <Image
-              src={big_circle.url}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${big_circle.url}`}
               fill
               alt={big_circle.name}
               className="object-contain"
@@ -56,7 +56,7 @@ const Modal = ({ data }: Props) => {
 
           <div className="absolute w-[330px] h-[330px] sm:w-[460px] sm:h-[460px] animate-spin-slow">
             <Image
-              src={text_image.url}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${text_image.url}`}
               alt={text_image.name}
               fill
               className="object-contain"
@@ -65,7 +65,7 @@ const Modal = ({ data }: Props) => {
 
           <div className="absolute w-[300px] h-[300px] sm:w-[300px] sm:h-[300px]">
             <Image
-              src={image_in_the_middle.url}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${image_in_the_middle.url}`}
               alt={image_in_the_middle.name}
               fill
               className="object-contain"
