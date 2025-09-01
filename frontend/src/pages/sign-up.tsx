@@ -41,7 +41,7 @@ const SignUp = ({ footer, header, screenmenu, homepage, signup }: Props) => {
                   homepage.about_light.primary_image.name
                 }
                 src={
-                  homepage.about_light.primary_image.url
+                  `${process.env.NEXT_PUBLIC_API_URL}${homepage.about_light.primary_image.url}`
                 }
                 width={450}
                 height={550}

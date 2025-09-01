@@ -50,7 +50,7 @@ export const CarouselDesktop = ({ data }: Props) => {
             <div className="relative w-full h-96 mb-10">
               <Image
                 alt={data[0].secondary_image.name}
-                src={data[0].secondary_image.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${data[0].secondary_image.url}`}
                 fill
                 className="object-contain"
               />
@@ -58,7 +58,7 @@ export const CarouselDesktop = ({ data }: Props) => {
               <div className="absolute w-full h-[420px] -top-[17px] animate-spin-slow">
                 <Image
                   alt={data[0].text_image.name}
-                  src={data[0].text_image.url}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${data[0].text_image.url}`}
                   fill
                   className="object-contain"
                 />
@@ -66,7 +66,7 @@ export const CarouselDesktop = ({ data }: Props) => {
               <div className="absolute w-full h-96 z-50">
                 <Image
                   alt={data[0].image.name}
-                  src={data[0].image.url}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${data[0].image.url}`}
                   fill
                   className="object-contain"
                 />
@@ -93,7 +93,7 @@ export const CarouselDesktop = ({ data }: Props) => {
             <div className="relative w-full h-96 mb-10">
               <Image
                 alt={data[0].secondary_image.name}
-                src={data[0].secondary_image.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${data[0].secondary_image.url}`}
                 fill
                 className="object-contain"
               />
@@ -101,7 +101,7 @@ export const CarouselDesktop = ({ data }: Props) => {
               <div className="absolute w-full h-[420px] -top-[17px] animate-spin-slow">
                 <Image
                   alt={data[0].text_image.name}
-                  src={data[0].text_image.url}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${data[0].text_image.url}`}
                   fill
                   className="object-contain"
                 />
@@ -109,7 +109,7 @@ export const CarouselDesktop = ({ data }: Props) => {
               <div className="absolute w-full h-96 z-50">
                 <Image
                   alt={data[1].image.name}
-                  src={data[1].image.url}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${data[1].image.url}`}
                   fill
                   className="object-contain"
                 />
@@ -136,7 +136,7 @@ export const CarouselDesktop = ({ data }: Props) => {
             <div className="relative w-full h-96 mb-10">
               <Image
                 alt={data[0].secondary_image.name}
-                src={data[0].secondary_image.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${data[0].secondary_image.url}`}
                 fill
                 className="object-contain"
               />
@@ -144,7 +144,7 @@ export const CarouselDesktop = ({ data }: Props) => {
               <div className="absolute w-full h-[420px] -top-[17px] animate-spin-slow">
                 <Image
                   alt={data[0].text_image.name}
-                  src={data[0].text_image.url}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${data[0].text_image.url}`}
                   fill
                   className="object-contain"
                 />
@@ -152,7 +152,7 @@ export const CarouselDesktop = ({ data }: Props) => {
               <div className="absolute w-full h-96 z-50">
                 <Image
                   alt={data[2].image.name}
-                  src={data[2].image.url}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${data[2].image.url}`}
                   fill
                   className="object-contain"
                 />

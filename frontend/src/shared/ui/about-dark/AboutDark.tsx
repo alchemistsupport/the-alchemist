@@ -26,6 +26,7 @@ const settings = {
 export const AboutDark = ({ data, images }: Props) => {
   const [open, setOpen] = useState(false);
   const preparedData = mapImages(images.images);
+  console.log('prepared data: ', preparedData)
 
   return (
     <>
@@ -59,7 +60,7 @@ export const AboutDark = ({ data, images }: Props) => {
         <div className="relative w-full flex justify-center mb-8">
           <Zoom triggerOnce>
             <Image
-              src={data.secondary_image.url}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${data.secondary_image.url}`}
               alt={data.secondary_image.name}
               width={300}
               height={150}
@@ -68,7 +69,7 @@ export const AboutDark = ({ data, images }: Props) => {
 
           <Zoom triggerOnce className="absolute -top-2 z-20">
             <Image
-              src={data.primary_image.url}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${data.primary_image.url}`}
               alt={data.primary_image.name}
               width={400}
               height={150}
@@ -102,7 +103,7 @@ export const AboutDark = ({ data, images }: Props) => {
         <Zoom triggerOnce className="absolute w-full h-96 top-[250px] z-10">
           <Image
             alt={data.primary_image.name}
-            src={data.primary_image.url}
+            src={`${process.env.NEXT_PUBLIC_API_URL}${data.primary_image.url}`}
             fill
             className="object-contain"
           />

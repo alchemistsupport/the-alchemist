@@ -48,6 +48,8 @@ export const CarouselMobile = ({ data }: Props) => {
     },
   ];
 
+  console.log('here: ', preparedData)
+
   return (
     <div className="md:hidden menus-slider-mobile">
       <Slider {...settings}>
@@ -68,7 +70,7 @@ export const CarouselMobile = ({ data }: Props) => {
             <div className="absolute w-full h-48 md:h-60 top-[190px]">
               <Image
                 alt={item.alt}
-                src={item.src}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${item.src}`}
                 fill
                 className="object-contain"
               />

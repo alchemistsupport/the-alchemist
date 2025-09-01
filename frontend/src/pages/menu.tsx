@@ -11,6 +11,7 @@ import {
   ApiMenuMenu,
 } from '../../schemas';
 import { Layout, Button, Text, SignUpForm } from '../shared/ui';
+import { getStrapiMedia } from '../../lib/media';
 
 type Props = {
   menu: ApiMenuMenu;
@@ -48,16 +49,16 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
       <section className="section section-dark">
         <div className="w-full h-[80vh] relative flex justify-center items-center overflow-hidden">
           <Image
-            alt={hero_banner.background_image.name}
-            src={hero_banner.background_image.url}
+            alt={`${process.env.NEXT_PUBLIC_API_URL}${hero_banner.background_image.name}`}
+            src={`${process.env.NEXT_PUBLIC_API_URL}${hero_banner.background_image.url}`}
             fill
             className="object-cover"
           />
 
           <Bounce className="absolute w-[280px] h-[280px] sm:w-[360px] sm:h-[360px]">
             <Image
-              src={hero_banner.primary_image.url}
-              alt={hero_banner.primary_image.name}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${hero_banner.primary_image.url}`}
+              alt={`${process.env.NEXT_PUBLIC_API_URL}${hero_banner.primary_image.name}`}
               fill
               className="object-contain"
             />
@@ -65,8 +66,8 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
 
           <div className="absolute w-[320px] h-[320px] sm:w-[500px] sm:h-[400px] animate-spin-slow">
             <Image
-              src={hero_banner.secondary_image.url}
-              alt={hero_banner.secondary_image.name}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${hero_banner.secondary_image.url}`}
+              alt={`${process.env.NEXT_PUBLIC_API_URL}${hero_banner.secondary_image.name}`}
               fill
               className="object-contain"
             />
@@ -136,7 +137,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-[250px] md:h-[370px]">
               <Image
                 alt={foodPrimaryImage.name}
-                src={foodPrimaryImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${foodPrimaryImage.url}`}
                 fill
                 className="object-contain"
               />
@@ -144,7 +145,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-72 md:h-[420px] -top-[17px]">
               <Image
                 alt={foodTextImage.name}
-                src={foodTextImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${foodTextImage.url}`}
                 fill
                 className="object-contain animate-spin-slow"
               />
@@ -152,7 +153,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-72 md:h-96">
               <Image
                 alt={foodSecondaryImage.name}
-                src={foodSecondaryImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${foodSecondaryImage.url}`}
                 fill
                 className="object-contain"
               />
@@ -195,7 +196,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-[250px] md:h-[370px]">
               <Image
                 alt={foodPrimaryImage.name}
-                src={foodPrimaryImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${foodPrimaryImage.url}`}
                 fill
                 className="object-contain"
               />
@@ -203,7 +204,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-72 md:h-[420px] -top-[17px]">
               <Image
                 alt={foodTextImage.name}
-                src={foodTextImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${foodTextImage.url}`}
                 fill
                 className="object-contain animate-spin-slow"
               />
@@ -211,7 +212,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-72 md:h-96">
               <Image
                 alt={drinksPrimaryImage.name}
-                src={drinksPrimaryImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${drinksPrimaryImage.url}`}
                 fill
                 className="object-contain"
               />
@@ -247,7 +248,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-[250px] md:h-[370px]">
               <Image
                 alt={foodPrimaryImage.name}
-                src={foodPrimaryImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${foodPrimaryImage.url}`}
                 fill
                 className="object-contain"
               />
@@ -255,7 +256,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-72 md:h-[420px] -top-[17px]">
               <Image
                 alt={foodTextImage.name}
-                src={foodTextImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${foodTextImage.url}`}
                 fill
                 className="object-contain animate-spin-slow"
               />
@@ -263,7 +264,7 @@ const Menu = ({ menu, footer, header, screenmenu }: Props) => {
             <div className="absolute w-full h-72 md:h-96">
               <Image
                 alt={brunchPrimaryImage.name}
-                src={brunchPrimaryImage.url}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${brunchPrimaryImage.url}`}
                 fill
                 className="object-contain"
               />

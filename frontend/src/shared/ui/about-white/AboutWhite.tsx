@@ -27,7 +27,7 @@ export const AboutWhite = ({ data, locale }: Props) => {
           <Zoom triggerOnce>
             <Image
               alt={data.primary_image.name}
-              src={data.primary_image.url}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${data.primary_image.url}`}
               width={650}
               height={550}
               className="mx-auto z-50"
