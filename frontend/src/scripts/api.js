@@ -1,7 +1,7 @@
 const qs = require('qs');
 
 function getStrapiURL(path = '') {
-  return `${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:1337'}${path}`;
+  return `${process.env.NEXT_PUBLIC_API_URL || 'https://server.thealchemist.de'}${path}`;
 }
 
 async function fetchAPI(
