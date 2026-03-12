@@ -61,7 +61,6 @@ export const ContactUsForm = ({ contact, campaign }: Props) => {
         router.push('/confirmation?type=contact');
       } catch (error) {
         setLoading(false);
-        console.log(error);
       }
     },
   });

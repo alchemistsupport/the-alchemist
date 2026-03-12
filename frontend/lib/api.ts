@@ -23,7 +23,6 @@ export async function fetchAPI(
 
 
   const response = await fetch(requestUrl, mergedOptions);
-  console.log(requestUrl)
 
 
   if (!response.ok) {

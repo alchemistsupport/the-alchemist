@@ -247,7 +247,6 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-  console.log('locale: ', context.locale)
   if (!context.params?.id) {
     return {
       redirect: {

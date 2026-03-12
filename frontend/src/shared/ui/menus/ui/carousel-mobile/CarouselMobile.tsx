@@ -48,7 +48,6 @@ export const CarouselMobile = ({ data }: Props) => {
     },
   ];
 
-  console.log('here: ', preparedData)
 
   return (
     <div className="md:hidden menus-slider-mobile">
